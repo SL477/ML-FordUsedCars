@@ -13,3 +13,4 @@
 | Poster.pptx | The raw file for the poster |
 | readme.txt | A reduced version of this file |
 | SummaryStats.xlsx | Used to format the summary statistics output from MatLab prior to use in the Poster |
+| GetSummaryStats.m | Function similar to pandas summary stats |

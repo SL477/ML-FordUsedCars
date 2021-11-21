@@ -1,3 +1,4 @@
+clc;
 %% Load the data
 data = readtable('data/ford.csv');
 
@@ -10,21 +11,23 @@ data.fuelType = categorical(data.fuelType);
 %% Data exploration
 % Summary statistics
 numberCols = [0 1 1 0 1 0 1 1 1];
-stats = zeros(5, 6);
-curCol = 1;
-for i = 1:9
-    if numberCols(i) == 1
-       stats(1, curCol) = mean(data{:, i});
-       stats(2, curCol) = median(data{:, i});
-       stats(3, curCol) = min(data{:, i});
-       stats(4, curCol) = max(data{:, i});
-       stats(5, curCol) = std(data{:, i});
-       curCol = curCol + 1;
-    end
-end
-stats = array2table(stats, 'VariableNames', data.Properties.VariableNames(logical(numberCols)), "RowNames",{'Mean', 'Median', 'Min','Max','Std'});
+stats = GetSummaryStats(data, numberCols);
+disp("Pre-Changes:");
+disp(stats);
+
+% Get the mean of the non-zero engine sizes for imputing into the zero
+% sizes
+meanNZEngine = mean(data{data.engineSize > 0, 'engineSize'});
+
+% Impute the zeros
+data{data.engineSize == 0, 'engineSize'} = meanNZEngine;
 
 % update year 2060 to 2020 and redo stats
+data(data.year == 2060,:).year = 2020;
+stats2 = GetSummaryStats(data, numberCols);
+disp("Post-Changes:");
+disp(stats2);
+
 % Get the mode for non number columns
 
 % Histograms

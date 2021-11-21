@@ -2,3 +2,4 @@
 ~*.pptx
 ~*.docx
 data/
+~*.xlsx
