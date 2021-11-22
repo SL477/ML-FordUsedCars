@@ -15,12 +15,12 @@
 ## Files
 | File Name | Description |
 | --------- | ----------- |
-| Appendix.dotx | Extra Data for the poster |
+| Appendix.docx | Extra Data for the poster |
+| GetSummaryStats.m | Function similar to pandas summary stats |
 | main.m | Main MatLab program |
 | Poster.pptx | The raw file for the poster |
 | readme.txt | A reduced version of this file |
 | SummaryStats.xlsx | Used to format the summary statistics output from MatLab prior to use in the Poster |
-| GetSummaryStats.m | Function similar to pandas summary stats |
 
 ## To work out required files use:
 
