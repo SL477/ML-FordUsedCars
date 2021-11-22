@@ -1,4 +1,9 @@
+%% Setup
+% Wipe command window, delete variables, close all figures
 clc; clear; close all;
+
+% Set the seed
+rng(42);
 %% Load the data
 data = readtable('data/ford.csv');
 
@@ -36,7 +41,7 @@ disp(array2table(["Model", char(mode(data.model));
 % for how to get the string value of a categorical
 
 % Histograms
-f = figure;
+f = figure('Name', 'Histograms'); % from https://uk.mathworks.com/matlabcentral/answers/471816-change-name-of-figures-in-figures-tab
 f.Position = [50, 50, 960,780];
 for i = 1: width(data)
     %figure
@@ -45,5 +50,8 @@ for i = 1: width(data)
     title(data.Properties.VariableNames(i));
     ylabel("Count");
 end
+
+% Move the Fuel Type Other to be electric, as it is mis-classified
+data(data.fuelType == 'Other',:).fuelType = 'Electric';
 
 % Graph against price

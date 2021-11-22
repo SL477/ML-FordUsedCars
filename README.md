@@ -14,3 +14,11 @@
 | readme.txt | A reduced version of this file |
 | SummaryStats.xlsx | Used to format the summary statistics output from MatLab prior to use in the Poster |
 | GetSummaryStats.m | Function similar to pandas summary stats |
+
+## To work out required files use:
+
+```
+[fileList, packageList] = matlab.codetools.requiredFilesAndProducts("main.m")
+```
+
+From https://uk.mathworks.com/help/matlab/ref/matlab.codetools.requiredfilesandproducts.html
