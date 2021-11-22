@@ -55,3 +55,17 @@ end
 data(data.fuelType == 'Other',:).fuelType = 'Electric';
 
 % Graph against price
+f2 = figure('Name', 'Scatter Plots');
+f2.Position = [100, 100, 960, 780];
+curpos = 1;
+for i = 1: width(data)
+    if i ~= 3 %numberCols(i) == 1 && i ~= 3
+        %figure('Name', strcat(data.Properties.VariableNames(i), " v price"));
+        subplot(4, 2, curpos);
+        scatter(data{:,i}, data{:, 'price'});
+        title(strcat(data.Properties.VariableNames(i), " v price"));
+        ylabel("Price")
+        xlabel(data.Properties.VariableNames(i));
+        curpos = curpos + 1;
+    end
+end
