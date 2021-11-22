@@ -1,9 +1,16 @@
 # ML-FordUsedCars
  Ford Used Cars Data Linear Regression versus Decision Tree Regression
 
+## Required Software
+| Name | Version |
+| ---- | ------- |
+| MATLAB | 9.10 |
+| Statistics and Machine Learning Toolbox | 12.1 |
+
 ## Setup
-1. Download Ford.csv from: https://www.kaggle.com/adityadesai13/used-car-dataset-ford-and-mercedes?select=ford.csv and save into the folder data
-2. Open MatLab and run main.m
+1. Create folder data
+2. Download Ford.csv from: https://www.kaggle.com/adityadesai13/used-car-dataset-ford-and-mercedes?select=ford.csv and save into the folder data
+3. Open MatLab and run main.m
 
 ## Files
 | File Name | Description |

@@ -93,11 +93,6 @@ clear curpos i f f2 f3
 %% Split into train and test data
 % Need to dummy encode the categories
 categoryCols = [1 0 0 1 0 1 0 0 0];
-% modelEncoding = dummyvar(data.model);
-% models = categories(data.model);
-% models = models';
-% models = array2table(modelEncoding, 'VariableNames', models);
-% data = [data models];
 
 % work out new width and column names
 colNames = [];
@@ -110,7 +105,7 @@ for i = 1: numel(categoryCols)
     end
 end
 
-% Empty array
+% Empty array, so that MatLab didn't complain about appending every loop
 data2 = zeros(height(data), numel(colNames));
 
 % Loop through and dummy var the relevant ones, else append
@@ -118,10 +113,6 @@ curcol = 1;
 for i = 1: numel(categoryCols)
     if categoryCols(i) == 1
         dummyEnc = dummyvar(data{:, i});
-        %dummyNames = categories(data{:, i});
-        %dummyNames = strcat(data.Properties.VariableNames(i), "_", dummyNames)';
-        %dummyEnc = array2table(dummyEnc, 'VariableNames', dummyNames);
-        %data = [data dummyEnc];
         data2(:, curcol:curcol + width(dummyEnc) - 1) = dummyEnc;
         curcol = curcol + width(dummyEnc);
     else
