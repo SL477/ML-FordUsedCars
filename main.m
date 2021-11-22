@@ -140,3 +140,29 @@ test_data.price = [];
 
 % tidy up variables in the workspace
 clear data2 colNames curcol dummyEnc dummyNames i idxTest idxTrain categoryCols numberCols numrows
+
+%% Linear Regression
+% Use https://uk.mathworks.com/help/stats/fitrlinear.html?searchHighlight=fitrlinear&s_tid=srchtitle_fitrlinear_1
+mdlLR = fitrlinear(train_data{:,:}, y_train);
+
+% predict y
+y_pred = predict(mdlLR, test_data{:,:});
+
+% Plot the actual values against the predicted ones
+residuals = y_pred - y_test;
+figure
+scatter(y_pred, y_test);
+hold on
+plot([0 12000], [0 12000], 'r')
+hold off
+ylabel("Predictions");
+xlabel("Actual");
+title("Predictions versus actual");
+legend('Predictions', 'Ideal Line', "Location", "northwest");
+
+% Plot residuals as a histogram
+figure
+histogram(residuals);
+title("Histogram of residuals");
+xlabel("Residuals");
+ylabel("Count");
