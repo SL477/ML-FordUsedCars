@@ -52,7 +52,10 @@ for i = 1: width(data)
 end
 
 % Move the Fuel Type Other to be electric, as it is mis-classified
-data(data.fuelType == 'Other',:).fuelType = 'Electric';
+%data(data.fuelType == 'Other',:).fuelType = 'Electric';
+% Uses https://uk.mathworks.com/help/matlab/ref/categorical.mergecats.html
+% to merge the Other category into Electric
+data.fuelType = mergecats(data.fuelType, {'Electric', 'Other'});
 
 % Graph against price
 f2 = figure('Name', 'Scatter Plots');
@@ -166,3 +169,12 @@ histogram(residuals);
 title("Histogram of residuals");
 xlabel("Residuals");
 ylabel("Count");
+
+% Root Mean Squared Error
+rmse = sqrt(sum(residuals .^ 2) / numel(residuals));
+
+% Mean Absolute Error
+mae = sum(abs(residuals)) / numel(residuals);
+
+% Format display of RMSE & MAE
+disp(array2table(["RMSE", string(rmse); "MAE", string(mae)], 'VariableNames', ["Stat", "Number"]))
