@@ -97,14 +97,21 @@ clear curpos i f f2 f3
 % Need to dummy encode the categories
 categoryCols = [1 0 0 1 0 1 0 0 0];
 
+% Decide which columns to use
+% Columns: model, year, price, transmission, mileage, fuelType, tax, mpg,
+% engineSize
+useCols = [true, true, true, false, true, true, false, true, true];
+
 % work out new width and column names
 colNames = [];
 for i = 1: numel(categoryCols)
-    if categoryCols(i) == 1
-        dummyNames = categories(data{:, i});
-        colNames = [colNames strcat(data.Properties.VariableNames(i), "_", dummyNames)'];
-    else
-        colNames = [colNames data.Properties.VariableNames(i)];
+    if useCols(i)
+        if categoryCols(i) == 1
+            dummyNames = categories(data{:, i});
+            colNames = [colNames strcat(data.Properties.VariableNames(i), "_", dummyNames)'];
+        else
+            colNames = [colNames data.Properties.VariableNames(i)];
+        end
     end
 end
 
@@ -114,15 +121,18 @@ data2 = zeros(height(data), numel(colNames));
 % Loop through and dummy var the relevant ones, else append
 curcol = 1;
 for i = 1: numel(categoryCols)
-    if categoryCols(i) == 1
-        dummyEnc = dummyvar(data{:, i});
-        data2(:, curcol:curcol + width(dummyEnc) - 1) = dummyEnc;
-        curcol = curcol + width(dummyEnc);
-    else
-        data2(:, curcol) = data{:, i};
-        curcol = curcol + 1;
+    if useCols(i)
+        if categoryCols(i) == 1
+            dummyEnc = dummyvar(data{:, i});
+            data2(:, curcol:curcol + width(dummyEnc) - 1) = dummyEnc;
+            curcol = curcol + width(dummyEnc);
+        else
+            data2(:, curcol) = data{:, i};
+            curcol = curcol + 1;
+        end
     end
 end
+
 data = array2table(data2, 'VariableNames', colNames);
 
 % a lot of inspiration from https://uk.mathworks.com/help/stats/cvpartition.html
@@ -141,22 +151,30 @@ test_data = data(idxTest, :);
 y_test = test_data.price;
 test_data.price = [];
 
+% Normalise train/test data
+% Exclude the categorical columns from the normalization to avoid issues
+% Used https://uk.mathworks.com/help/matlab/ref/double.normalize.html to
+% figure out how to do it
+train_data_normed = normalize(train_data, 'DataVariables', ["year", "mileage", "mpg","engineSize"]);
+test_data_normed = normalize(test_data, 'DataVariables', ["year", "mileage", "mpg","engineSize"]);
+
 % tidy up variables in the workspace
-clear data2 colNames curcol dummyEnc dummyNames i idxTest idxTrain categoryCols numberCols numrows
+clear data2 colNames curcol dummyEnc dummyNames i idxTest idxTrain categoryCols numberCols numrows useCols
 
 %% Linear Regression
 % Use https://uk.mathworks.com/help/stats/fitrlinear.html?searchHighlight=fitrlinear&s_tid=srchtitle_fitrlinear_1
-mdlLR = fitrlinear(train_data{:,:}, y_train);
+mdlLR = fitrlinear(train_data_normed{:,:}, y_train);
 
 % predict y
-y_pred = predict(mdlLR, test_data{:,:});
+y_pred = predict(mdlLR, test_data_normed{:,:});
 
 % Plot the actual values against the predicted ones
 residuals = y_pred - y_test;
 figure
 scatter(y_pred, y_test);
+m = max([y_test y_pred]);
 hold on
-plot([0 12000], [0 12000], 'r')
+plot([0 m], [0 m], 'r')
 hold off
 ylabel("Predictions");
 xlabel("Actual");
