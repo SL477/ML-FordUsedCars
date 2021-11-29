@@ -5,7 +5,7 @@ function stats = GetSummaryStats(data, numberColumns)
     stats = zeros(5, sum(numberColumns));
     curCol = 1;
     for i = 1:cols
-        if numberColumns(i) == 1
+        if numberColumns(i)
            stats(1, curCol) = mean(data{:, i});
            stats(2, curCol) = median(data{:, i});
            stats(3, curCol) = min(data{:, i});

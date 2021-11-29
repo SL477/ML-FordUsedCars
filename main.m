@@ -15,7 +15,7 @@ data.fuelType = categorical(data.fuelType);
 
 %% Data exploration
 % Summary statistics
-numberCols = [0 1 1 0 1 0 1 1 1];
+numberCols = [false true true false true false true true true];
 stats = GetSummaryStats(data, numberCols);
 disp("Pre-Changes:");
 disp(stats);
@@ -81,7 +81,7 @@ curpos = 1;
 f3 = figure('Name', 'Box Plots');
 f3.Position = [150, 150, 960, 780];
 for i = 1: width(data)
-    if numberCols(i) == 1
+    if numberCols(i)
         %figure('Name', strcat("Boxplot: ", data.Properties.VariableNames(i)));
         subplot(3, 2, curpos);
         boxplot(data{:,i});
@@ -95,7 +95,7 @@ clear curpos i f f2 f3
 
 %% Split into train and test data
 % Need to dummy encode the categories
-categoryCols = [1 0 0 1 0 1 0 0 0];
+categoryCols = ~numberCols;
 
 % Decide which columns to use
 % Columns: model, year, price, transmission, mileage, fuelType, tax, mpg,
@@ -106,7 +106,7 @@ useCols = [true, true, true, false, true, true, false, true, true];
 colNames = [];
 for i = 1: numel(categoryCols)
     if useCols(i)
-        if categoryCols(i) == 1
+        if categoryCols(i)
             dummyNames = categories(data{:, i});
             colNames = [colNames strcat(data.Properties.VariableNames(i), "_", dummyNames)'];
         else
@@ -122,7 +122,7 @@ data2 = zeros(height(data), numel(colNames));
 curcol = 1;
 for i = 1: numel(categoryCols)
     if useCols(i)
-        if categoryCols(i) == 1
+        if categoryCols(i)
             dummyEnc = dummyvar(data{:, i});
             data2(:, curcol:curcol + width(dummyEnc) - 1) = dummyEnc;
             curcol = curcol + width(dummyEnc);
