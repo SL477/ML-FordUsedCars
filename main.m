@@ -165,10 +165,29 @@ clear data2 colNames curcol dummyEnc dummyNames i idxTest idxTrain categoryCols 
 % Use https://uk.mathworks.com/help/stats/fitrlinear.html?searchHighlight=fitrlinear&s_tid=srchtitle_fitrlinear_1
 %mdlLR = fitrlinear(train_data_normed{:,:}, y_train);
 
+% Split train into train and validation sets
+numrows2 = height(train_data_normed);
+cvpart2 = cvpartition(numrows2, 'Holdout', 0.3);
+idxTrain2 = training(cvpart2);
+idxTest2 = test(cvpart2);
+
+% need to move price to a new variable and delete it here, otherwise it
+% will thing it is a feature
+train_data2 = train_data_normed(idxTrain2,:);
+y_train2 = y_train(idxTrain2);
+
+valid_data = train_data_normed(idxTest2, :);
+y_valid = y_train(idxTest2);
+
+% Tidy up
+clear numrows2 cvpart2 idxTrain2 idxTest2
+
 % Optimised model
-mdlLR = fitrlinear(train_data_normed{:,:}, y_train, 'Lambda', 0.0002972, ...
-    'Learner', 'leastsquares', 'Regularization', 'ridge', ...
-    'Solver', 'bfgs');
+mdlLR = fitrlinear(train_data2, y_train2, 'Lambda', 0.0002972, ...
+      'Learner', 'leastsquares', 'Regularization', 'ridge', ...
+      'Solver', 'bfgs', 'ValidationData', {valid_data, y_valid}, 'FitBias', true, 'PostFitBias', false, 'OptimizeLearnRate', false);
+%mdlLR = fitrlinear(train_data_normed, y_train, 'Lambda', 0.00017074,...
+%    'Learner', 'leastsquares', 'Regularization', 'ridge', 'Solver', 'bfgs');
 
 % predict y
 y_pred = predict(mdlLR, test_data_normed{:,:});

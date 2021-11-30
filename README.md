@@ -36,6 +36,8 @@ Then run step 3
 | GetSummaryStats.m | Function similar to pandas summary stats |
 | main.m | Main MatLab program |
 | Makefie | File for bash commands to live in |
+| OptimizeLinearRegression.m | The script used to get the optimum hyperparameters for Linear Regression |
+| Output of OptimizeLinearRegression.txt | The output of the run of OptimizeLinearRegression.m |
 | Poster.pptx | The raw file for the poster |
 | README.md | This readme file |
 | readme.txt | A reduced version of this file |
