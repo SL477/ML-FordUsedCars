@@ -1,0 +1,128 @@
+|=====================================================================================================|
+| Iter | Eval   | Objective:  | Objective   | BestSoFar   | BestSoFar   |       Lambda |      Learner |
+|      | result | log(1+loss) | runtime     | (observed)  | (estim.)    |              |              |
+|=====================================================================================================|
+|    1 | Best   |      15.326 |      1.4182 |      15.326 |      15.326 |     0.028624 | leastsquares |
+|    2 | Best   |      15.092 |     0.48257 |      15.092 |      15.136 |    1.106e-07 |          svm |
+|    3 | Accept |       16.78 |     0.11695 |      15.092 |      15.175 |    0.0016566 |          svm |
+|    4 | Accept |      16.983 |    0.094283 |      15.092 |      15.093 |       7.1447 |          svm |
+|    5 | Best   |      15.087 |     0.57037 |      15.087 |      15.087 |   9.2886e-10 |          svm |
+|    6 | Best   |      15.076 |     0.29992 |      15.076 |      15.076 |   6.2082e-07 | leastsquares |
+|    7 | Accept |      15.076 |     0.33847 |      15.076 |      15.076 |   8.0289e-10 | leastsquares |
+|    8 | Accept |       16.71 |    0.076513 |      15.076 |      15.076 |        7.937 | leastsquares |
+|    9 | Best   |      15.073 |     0.30631 |      15.073 |      15.073 |   0.00019156 | leastsquares |
+|   10 | Accept |      15.076 |     0.27903 |      15.073 |      15.073 |   1.7386e-08 | leastsquares |
+|   11 | Accept |      15.087 |     0.50152 |      15.073 |      15.073 |   1.0951e-08 |          svm |
+|   12 | Accept |      15.082 |     0.20235 |      15.073 |      15.073 |    0.0011888 | leastsquares |
+|   13 | Accept |      15.075 |     0.27328 |      15.073 |      15.073 |   9.0931e-06 | leastsquares |
+|   14 | Accept |      15.076 |     0.24885 |      15.073 |      15.072 |   3.1462e-09 | leastsquares |
+|   15 | Accept |      15.076 |     0.25591 |      15.073 |      15.072 |   1.0662e-07 | leastsquares |
+|   16 | Accept |      15.075 |     0.23851 |      15.073 |      15.072 |    4.884e-05 | leastsquares |
+|   17 | Best   |      15.073 |     0.22765 |      15.073 |      15.072 |   0.00033153 | leastsquares |
+|   18 | Accept |      15.076 |     0.24077 |      15.073 |      15.072 |   2.3858e-06 | leastsquares |
+|   19 | Best   |      15.073 |     0.23252 |      15.073 |      15.072 |   0.00031165 | leastsquares |
+|   20 | Accept |      15.089 |     0.45396 |      15.073 |      15.072 |   3.7087e-08 |          svm |
+|=====================================================================================================|
+| Iter | Eval   | Objective:  | Objective   | BestSoFar   | BestSoFar   |       Lambda |      Learner |
+|      | result | log(1+loss) | runtime     | (observed)  | (estim.)    |              |              |
+|=====================================================================================================|
+|   21 | Best   |      15.073 |     0.24651 |      15.073 |      15.072 |    0.0002972 | leastsquares |
+|   22 | Accept |      15.073 |     0.23247 |      15.073 |      15.072 |   0.00012327 | leastsquares |
+|   23 | Accept |      15.073 |     0.24403 |      15.073 |      15.072 |   0.00035339 | leastsquares |
+|   24 | Accept |      15.076 |     0.26008 |      15.073 |      15.072 |    2.023e-09 | leastsquares |
+|   25 | Accept |      15.076 |     0.25329 |      15.073 |      15.072 |   4.3717e-08 | leastsquares |
+|   26 | Accept |      15.413 |     0.14935 |      15.073 |      15.073 |   1.5019e-05 |          svm |
+|   27 | Accept |      15.121 |      0.3099 |      15.073 |      15.073 |   6.0144e-07 |          svm |
+|   28 | Accept |      15.075 |     0.25133 |      15.073 |      15.073 |   2.3222e-05 | leastsquares |
+|   29 | Accept |      15.076 |     0.25551 |      15.073 |      15.073 |   2.5984e-07 | leastsquares |
+|   30 | Accept |      15.076 |     0.25071 |      15.073 |      15.073 |   7.8603e-09 | leastsquares |
+
+__________________________________________________________
+Optimization completed.
+MaxObjectiveEvaluations of 30 reached.
+Total function evaluations: 30
+Total elapsed time: 26.9239 seconds
+Total objective function evaluation time: 9.3111
+
+Best observed feasible point:
+     Lambda        Learner   
+    _________    ____________
+
+    0.0002972    leastsquares
+
+Observed objective function value = 15.0726
+Estimated objective function value = 15.0726
+Function evaluation time = 0.24651
+
+Best estimated feasible point (according to models):
+     Lambda        Learner   
+    _________    ____________
+
+    0.0002972    leastsquares
+
+Estimated objective function value = 15.0726
+Estimated function evaluation time = 0.24464
+
+
+mdl = 
+
+  RegressionLinear
+       PredictorNames: {1×31 cell}
+         ResponseName: 'Y'
+    ResponseTransform: 'none'
+                 Beta: [31×1 double]
+                 Bias: 1.6325e+04
+               Lambda: 2.9720e-04
+              Learner: 'leastsquares'
+
+
+  Properties, Methods
+
+
+FitInfo = 
+
+  struct with fields:
+
+                    Lambda: 2.9720e-04
+                 Objective: 1.7614e+06
+            IterationLimit: 1000
+             NumIterations: 163
+              GradientNorm: 0.0128
+         GradientTolerance: 1.0000e-06
+      RelativeChangeInBeta: 2.7679e-05
+             BetaTolerance: 1.0000e-04
+             DeltaGradient: []
+    DeltaGradientTolerance: []
+           TerminationCode: 1
+         TerminationStatus: {'Tolerance on coefficients satisfied.'}
+                   History: []
+                   FitTime: 0.0540
+                    Solver: {'bfgs'}
+
+
+HyperParameterOptimizationResults = 
+
+  BayesianOptimization with properties:
+
+                      ObjectiveFcn: @createObjFcn/inMemoryObjFcn
+              VariableDescriptions: [3×1 optimizableVariable]
+                           Options: [1×1 struct]
+                      MinObjective: 15.0726
+                   XAtMinObjective: [1×2 table]
+             MinEstimatedObjective: 15.0726
+          XAtMinEstimatedObjective: [1×2 table]
+           NumObjectiveEvaluations: 30
+                  TotalElapsedTime: 26.9239
+                         NextPoint: [1×2 table]
+                            XTrace: [30×2 table]
+                    ObjectiveTrace: [30×1 double]
+                  ConstraintsTrace: []
+                     UserDataTrace: {30×1 cell}
+      ObjectiveEvaluationTimeTrace: [30×1 double]
+                IterationTimeTrace: [30×1 double]
+                        ErrorTrace: [30×1 double]
+                  FeasibilityTrace: [30×1 logical]
+       FeasibilityProbabilityTrace: [30×1 double]
+               IndexOfMinimumTrace: [30×1 double]
+             ObjectiveMinimumTrace: [30×1 double]
+    EstimatedObjectiveMinimumTrace: [30×1 double]

@@ -163,10 +163,16 @@ clear data2 colNames curcol dummyEnc dummyNames i idxTest idxTrain categoryCols 
 
 %% Linear Regression
 % Use https://uk.mathworks.com/help/stats/fitrlinear.html?searchHighlight=fitrlinear&s_tid=srchtitle_fitrlinear_1
-mdlLR = fitrlinear(train_data_normed{:,:}, y_train);
+%mdlLR = fitrlinear(train_data_normed{:,:}, y_train);
+
+% Optimised model
+mdlLR = fitrlinear(train_data_normed{:,:}, y_train, 'Lambda', 0.0002972, ...
+    'Learner', 'leastsquares', 'Regularization', 'ridge', ...
+    'Solver', 'bfgs');
 
 % predict y
 y_pred = predict(mdlLR, test_data_normed{:,:});
+
 
 % Plot the actual values against the predicted ones
 residuals = y_pred - y_test;
