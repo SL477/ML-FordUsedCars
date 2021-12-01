@@ -197,35 +197,38 @@ mdlLR = fitrlinear(train_data2, y_train2, 'Lambda', 0.0002972, ...
 % predict y
 y_pred = predict(mdlLR, test_data_normed{:,:});
 
+% Analyse the regression
+analyseRegression(y_test, y_pred, test_data, "Linear Regression");
+% currently the residuals sum to -13k,
 
-% Plot the actual values against the predicted ones
-residuals = y_pred - y_test;
-figure
-scatter(y_pred, y_test);
-m = max([y_test y_pred]);
-hold on
-plot([0 m], [0 m], 'r')
-hold off
-ylabel("Predictions");
-xlabel("Actual");
-title("Predictions versus actual");
-legend('Predictions', 'Ideal Line', "Location", "northwest");
-
-% Plot residuals as a histogram
-figure
-histogram(residuals);
-title("Histogram of residuals");
-xlabel("Residuals");
-ylabel("Count");
-
-% Root Mean Squared Error
-rmse = sqrt(sum(residuals .^ 2) / numel(residuals));
-
-% Mean Absolute Error
-mae = sum(abs(residuals)) / numel(residuals);
-
-% Format display of RMSE & MAE
-disp(array2table(["RMSE", string(rmse); "MAE", string(mae)], 'VariableNames', ["Stat", "Number"]))
-
-% Sum residuals, they should add to zero for Linear Regression
-sumResiduals = sum(residuals)
+% % Plot the actual values against the predicted ones
+% residuals = y_pred - y_test;
+% figure
+% scatter(y_pred, y_test);
+% m = max([y_test y_pred]);
+% hold on
+% plot([0 m], [0 m], 'r')
+% hold off
+% ylabel("Predictions");
+% xlabel("Actual");
+% title("Predictions versus actual");
+% legend('Predictions', 'Ideal Line', "Location", "northwest");
+% 
+% % Plot residuals as a histogram
+% figure
+% histogram(residuals);
+% title("Histogram of residuals");
+% xlabel("Residuals");
+% ylabel("Count");
+% 
+% % Root Mean Squared Error
+% rmse = sqrt(sum(residuals .^ 2) / numel(residuals));
+% 
+% % Mean Absolute Error
+% mae = sum(abs(residuals)) / numel(residuals);
+% 
+% % Format display of RMSE & MAE
+% disp(array2table(["RMSE", string(rmse); "MAE", string(mae)], 'VariableNames', ["Stat", "Number"]))
+% 
+% % Sum residuals, they should add to zero for Linear Regression
+% sumResiduals = sum(residuals)

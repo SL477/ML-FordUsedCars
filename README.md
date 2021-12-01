@@ -31,6 +31,7 @@ Then run step 3
 ## Files
 | File Name | Description |
 | --------- | ----------- |
+| analyseRegression.m | Holds the function analyseRegression so that both models are analysed the same |
 | Appendix.docx | Extra Data for the poster |
 | GetData.sh | Bash command to download the dataset |
 | GetSummaryStats.m | Function similar to pandas summary stats |
