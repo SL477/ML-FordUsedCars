@@ -1,0 +1,88 @@
+|===================================================================================================================================|
+| Iter | Eval   | Objective:  | Objective   | BestSoFar   | BestSoFar   |       Method | NumLearningC-|    LearnRate |  MinLeafSize |
+|      | result | log(1+loss) | runtime     | (observed)  | (estim.)    |              | ycles        |              |              |
+|===================================================================================================================================|
+|    1 | Best   |      16.045 |       12.37 |      16.045 |      16.045 |      LSBoost |          268 |    0.0071466 |          847 |
+|    2 | Best   |      14.694 |      7.4405 |      14.694 |      15.357 |          Bag |          101 |            - |           31 |
+|    3 | Accept |      16.755 |      14.227 |      14.694 |      14.696 |      LSBoost |          324 |    0.0037749 |            3 |
+|    4 | Best   |      14.461 |       7.344 |      14.461 |      14.461 |      LSBoost |          154 |      0.97765 |           17 |
+|    5 | Best   |      14.396 |      5.7633 |      14.396 |      14.396 |      LSBoost |          116 |       0.4792 |           88 |
+|    6 | Accept |      16.941 |      6.7316 |      14.396 |      14.396 |      LSBoost |          336 |      0.95278 |         6173 |
+|    7 | Best   |      14.323 |      4.9126 |      14.323 |      14.323 |          Bag |           33 |            - |            1 |
+|    8 | Accept |      16.668 |     0.55024 |      14.323 |      14.323 |          Bag |           14 |            - |         3778 |
+|    9 | Best   |       14.32 |      7.4888 |       14.32 |      14.322 |          Bag |           52 |            - |            1 |
+|   10 | Accept |      14.707 |      7.0909 |       14.32 |      14.322 |          Bag |          101 |            - |           32 |
+|   11 | Best   |      14.319 |      19.852 |      14.319 |      14.322 |      LSBoost |          391 |      0.29392 |           19 |
+|   12 | Accept |      14.357 |      59.918 |      14.319 |      14.322 |          Bag |          495 |            - |            4 |
+|   13 | Accept |      14.487 |      9.8927 |      14.319 |      14.322 |      LSBoost |          222 |      0.57498 |            1 |
+|   14 | Accept |      14.364 |      3.5365 |      14.319 |      14.322 |      LSBoost |           78 |       0.5075 |           13 |
+|   15 | Accept |      14.397 |      4.2541 |      14.319 |      14.322 |      LSBoost |           88 |      0.22502 |           55 |
+|   16 | Accept |      14.375 |      2.6799 |      14.319 |      14.322 |      LSBoost |           57 |      0.42042 |           34 |
+|   17 | Best   |      14.315 |      6.5831 |      14.315 |      14.322 |      LSBoost |          146 |      0.20613 |            4 |
+|   18 | Accept |      14.318 |      5.2923 |      14.315 |      14.316 |      LSBoost |          120 |      0.23448 |            8 |
+|   19 | Accept |       14.38 |      21.711 |      14.315 |      14.316 |      LSBoost |          498 |      0.31272 |            4 |
+|   20 | Accept |      14.544 |      2.0963 |      14.315 |      14.315 |      LSBoost |           43 |      0.13189 |            1 |
+|===================================================================================================================================|
+| Iter | Eval   | Objective:  | Objective   | BestSoFar   | BestSoFar   |       Method | NumLearningC-|    LearnRate |  MinLeafSize |
+|      | result | log(1+loss) | runtime     | (observed)  | (estim.)    |              | ycles        |              |              |
+|===================================================================================================================================|
+|   21 | Accept |      14.472 |      3.1007 |      14.315 |      14.322 |      LSBoost |           64 |      0.12167 |            8 |
+|   22 | Accept |       14.39 |      1.3075 |      14.315 |       14.32 |          Bag |           10 |            - |            2 |
+|   23 | Best   |      14.309 |      65.367 |      14.309 |      14.311 |          Bag |          496 |            - |            1 |
+|   24 | Accept |      14.624 |     0.78735 |      14.309 |      14.309 |      LSBoost |           16 |       0.2678 |           13 |
+|   25 | Best   |      14.308 |      8.9732 |      14.308 |      14.306 |      LSBoost |          193 |      0.38119 |           31 |
+|   26 | Accept |      14.326 |      16.072 |      14.308 |      14.306 |          Bag |          131 |            - |            2 |
+|   27 | Accept |      14.309 |      9.7045 |      14.308 |      14.307 |      LSBoost |          219 |      0.28615 |           10 |
+|   28 | Accept |      14.312 |      10.253 |      14.308 |      14.307 |      LSBoost |          208 |      0.23442 |           20 |
+|   29 | Accept |       14.31 |      27.954 |      14.308 |      14.307 |          Bag |          211 |            - |            1 |
+|   30 | Accept |      14.342 |      8.4358 |      14.308 |       14.31 |      LSBoost |          183 |      0.36838 |           20 |
+
+__________________________________________________________
+Optimization completed.
+MaxObjectiveEvaluations of 30 reached.
+Total function evaluations: 30
+Total elapsed time: 395.3113 seconds
+Total objective function evaluation time: 361.6885
+
+Best observed feasible point:
+    Method     NumLearningCycles    LearnRate    MinLeafSize
+    _______    _________________    _________    ___________
+
+    LSBoost           193            0.38119         31     
+
+Observed objective function value = 14.3079
+Estimated objective function value = 14.3143
+Function evaluation time = 8.9732
+
+Best estimated feasible point (according to models):
+    Method    NumLearningCycles    LearnRate    MinLeafSize
+    ______    _________________    _________    ___________
+
+     Bag             211              NaN            1     
+
+Estimated objective function value = 14.3098
+Estimated function evaluation time = 28.3011
+
+
+mdl = 
+
+  RegressionBaggedEnsemble
+                       PredictorNames: {1×31 cell}
+                         ResponseName: 'Y'
+                CategoricalPredictors: []
+                    ResponseTransform: 'none'
+                      NumObservations: 12576
+    HyperparameterOptimizationResults: [1×1 BayesianOptimization]
+                           NumTrained: 211
+                               Method: 'Bag'
+                         LearnerNames: {'Tree'}
+                 ReasonForTermination: 'Terminated normally after completing the requested number of training cycles.'
+                              FitInfo: []
+                   FitInfoDescription: 'None'
+                       Regularization: []
+                            FResample: 1
+                              Replace: 1
+                     UseObsForLearner: [12576×211 logical]
+
+
+  Properties, Methods

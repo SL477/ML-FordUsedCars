@@ -94,8 +94,8 @@ end
 % something more resonable? Are they plug in hybrids? If not calculate
 % based on MPG of the engine plus/averaged with their range on battery. If
 % they are recreate the calculation done for the electric cars
-kugaMPG = 50.3; % 50.05
-data(data.mpg == 201.8,:).mpg = (data(data.mpg == 201.8,:).mpg * 0) + 50.05; % number from Ford for the normal hybrid(https://www.ford.co.uk/cars/new-kuga?searchid=ppc:Search_GB(eng)%7C%5BAO%5D_Retail_SD_Nameplate_Kuga_CPPI_GBP%7CShp-T2%7CDSA:UK-Kuga-DSA::b:c:g:GOOGLE&gclid=Cj0KCQiA15yNBhDTARIsAGnwe0UybuOFe8ITn9pw4UQNd2Pt_dyafdzFlQVahDrjyhejV38GCxw8LMsaAkspEALw_wcB&gclsrc=aw.ds)
+%kugaMPG = 50.3; % 50.05
+%data(data.mpg == 201.8,:).mpg = (data(data.mpg == 201.8,:).mpg * 0) + 50.05; % number from Ford for the normal hybrid(https://www.ford.co.uk/cars/new-kuga?searchid=ppc:Search_GB(eng)%7C%5BAO%5D_Retail_SD_Nameplate_Kuga_CPPI_GBP%7CShp-T2%7CDSA:UK-Kuga-DSA::b:c:g:GOOGLE&gclid=Cj0KCQiA15yNBhDTARIsAGnwe0UybuOFe8ITn9pw4UQNd2Pt_dyafdzFlQVahDrjyhejV38GCxw8LMsaAkspEALw_wcB&gclsrc=aw.ds)
 
 % Tidy up the work space
 clear curpos i f f2 f3
@@ -208,7 +208,9 @@ y_pred = predict(mdlLR, test_data_normed{:,:});
 % https://uk.mathworks.com/help/stats/fitrensemble.html
 
 % Fit model
-mdlRF = fitrensemble(train_data, y_train);
+%mdlRF = fitrensemble(train_data, y_train);
+t = templateTree('MinLeafSize', 31);
+mdlRF = fitrensemble(train_data, y_train, 'Method', 'LSBoost', 'NumLearningCycles', 193, 'LearnRate', 0.38119, 'Learners',t);
 
 % Predict y
 y_pred_rf = predict(mdlRF, test_data);
