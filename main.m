@@ -90,6 +90,11 @@ for i = 1: width(data)
     end
 end
 
+% TODO: should the hybrid fords have their MPG amount changed from 202 to
+% something more resonable? Are they plug in hybrids? If not calculate
+% based on MPG of the engine plus/averaged with their range on battery. If
+% they are recreate the calculation done for the electric cars
+
 % Tidy up the work space
 clear curpos i f f2 f3
 
@@ -221,3 +226,6 @@ mae = sum(abs(residuals)) / numel(residuals);
 
 % Format display of RMSE & MAE
 disp(array2table(["RMSE", string(rmse); "MAE", string(mae)], 'VariableNames', ["Stat", "Number"]))
+
+% Sum residuals, they should add to zero for Linear Regression
+sumResiduals = sum(residuals)
