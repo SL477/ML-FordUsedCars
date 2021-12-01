@@ -94,6 +94,8 @@ end
 % something more resonable? Are they plug in hybrids? If not calculate
 % based on MPG of the engine plus/averaged with their range on battery. If
 % they are recreate the calculation done for the electric cars
+kugaMPG = 50.3; % 50.05
+data(data.mpg == 201.8,:).mpg = (data(data.mpg == 201.8,:).mpg * 0) + 50.05; % number from Ford for the normal hybrid(https://www.ford.co.uk/cars/new-kuga?searchid=ppc:Search_GB(eng)%7C%5BAO%5D_Retail_SD_Nameplate_Kuga_CPPI_GBP%7CShp-T2%7CDSA:UK-Kuga-DSA::b:c:g:GOOGLE&gclid=Cj0KCQiA15yNBhDTARIsAGnwe0UybuOFe8ITn9pw4UQNd2Pt_dyafdzFlQVahDrjyhejV38GCxw8LMsaAkspEALw_wcB&gclsrc=aw.ds)
 
 % Tidy up the work space
 clear curpos i f f2 f3
@@ -198,37 +200,18 @@ mdlLR = fitrlinear(train_data2, y_train2, 'Lambda', 0.0002972, ...
 y_pred = predict(mdlLR, test_data_normed{:,:});
 
 % Analyse the regression
-analyseRegression(y_test, y_pred, test_data, "Linear Regression");
+[LRmae, LRrmse] = analyseRegression(y_test, y_pred, test_data, "Linear Regression");
 % currently the residuals sum to -13k,
 
-% % Plot the actual values against the predicted ones
-% residuals = y_pred - y_test;
-% figure
-% scatter(y_pred, y_test);
-% m = max([y_test y_pred]);
-% hold on
-% plot([0 m], [0 m], 'r')
-% hold off
-% ylabel("Predictions");
-% xlabel("Actual");
-% title("Predictions versus actual");
-% legend('Predictions', 'Ideal Line', "Location", "northwest");
-% 
-% % Plot residuals as a histogram
-% figure
-% histogram(residuals);
-% title("Histogram of residuals");
-% xlabel("Residuals");
-% ylabel("Count");
-% 
-% % Root Mean Squared Error
-% rmse = sqrt(sum(residuals .^ 2) / numel(residuals));
-% 
-% % Mean Absolute Error
-% mae = sum(abs(residuals)) / numel(residuals);
-% 
-% % Format display of RMSE & MAE
-% disp(array2table(["RMSE", string(rmse); "MAE", string(mae)], 'VariableNames', ["Stat", "Number"]))
-% 
-% % Sum residuals, they should add to zero for Linear Regression
-% sumResiduals = sum(residuals)
+%% Random Forest Regression
+
+% https://uk.mathworks.com/help/stats/fitrensemble.html
+
+% Fit model
+mdlRF = fitrensemble(train_data, y_train);
+
+% Predict y
+y_pred_rf = predict(mdlRF, test_data);
+
+% Analyse the regression
+[RFmae, RFrmse] = analyseRegression(y_test, y_pred_rf, test_data, "Random Forest");
