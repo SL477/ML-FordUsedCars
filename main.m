@@ -192,7 +192,7 @@ clear numrows2 cvpart2 idxTrain2 idxTest2
 % Optimised model
 mdlLR = fitrlinear(train_data2, y_train2, 'Lambda', 0.0002972, ...
       'Learner', 'leastsquares', 'Regularization', 'ridge', ...
-      'Solver', 'bfgs', 'ValidationData', {valid_data, y_valid}, 'FitBias', true, 'PostFitBias', false, 'OptimizeLearnRate', false);
+      'Solver', 'bfgs', 'FitBias', true, 'PostFitBias', false, 'OptimizeLearnRate', false);%'ValidationData', {valid_data, y_valid},
 %mdlLR = fitrlinear(train_data_normed, y_train, 'Lambda', 0.00017074,...
 %    'Learner', 'leastsquares', 'Regularization', 'ridge', 'Solver', 'bfgs');
 
@@ -209,8 +209,10 @@ y_pred = predict(mdlLR, test_data_normed{:,:});
 
 % Fit model
 %mdlRF = fitrensemble(train_data, y_train);
-t = templateTree('MinLeafSize', 31);
-mdlRF = fitrensemble(train_data, y_train, 'Method', 'LSBoost', 'NumLearningCycles', 193, 'LearnRate', 0.38119, 'Learners',t);
+t = templateTree('MinLeafSize', 1);
+%mdlRF = fitrensemble(train_data, y_train, 'Method', 'LSBoost', 'NumLearningCycles', 193, 'LearnRate', 0.38119, 'Learners',t);
+% update method to Bag so that it uses random forest
+mdlRF = fitrensemble(train_data, y_train, 'Method', 'Bag', 'NumLearningCycles', 499, 'Learners',t);
 
 % Predict y
 y_pred_rf = predict(mdlRF, test_data);

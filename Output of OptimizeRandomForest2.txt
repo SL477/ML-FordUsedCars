@@ -1,0 +1,88 @@
+|=====================================================================================================|
+| Iter | Eval   | Objective:  | Objective   | BestSoFar   | BestSoFar   | NumLearningC-|  MinLeafSize |
+|      | result | log(1+loss) | runtime     | (observed)  | (estim.)    | ycles        |              |
+|=====================================================================================================|
+|    1 | Best   |      14.887 |       2.355 |      14.887 |      14.887 |           27 |           54 |
+|    2 | Best   |      14.351 |      12.016 |      14.351 |      14.406 |           90 |            3 |
+|    3 | Accept |       16.63 |      3.2658 |      14.351 |      14.351 |           78 |         3460 |
+|    4 | Accept |      15.407 |        28.1 |      14.351 |      14.351 |          494 |          251 |
+|    5 | Accept |      14.393 |      1.5281 |      14.351 |      14.352 |           10 |            1 |
+|    6 | Best   |      14.325 |      68.349 |      14.325 |      14.327 |          495 |            2 |
+|    7 | Best   |      14.324 |      67.796 |      14.324 |      14.325 |          497 |            2 |
+|    8 | Best   |      14.324 |      65.766 |      14.324 |      14.325 |          496 |            2 |
+|    9 | Accept |      14.326 |      66.202 |      14.324 |      14.325 |          500 |            2 |
+|   10 | Accept |      14.414 |      54.044 |      14.324 |      14.325 |          492 |            8 |
+|   11 | Best   |      14.309 |      73.257 |      14.309 |      14.321 |          499 |            1 |
+|   12 | Accept |       14.31 |      72.288 |      14.309 |      14.313 |          492 |            1 |
+|   13 | Accept |       14.31 |      72.832 |      14.309 |      14.311 |          496 |            1 |
+|   14 | Accept |      14.311 |      71.514 |      14.309 |      14.311 |          494 |            1 |
+|   15 | Accept |      14.493 |       1.126 |      14.309 |      14.312 |           10 |            9 |
+|   16 | Accept |      14.358 |      62.412 |      14.309 |      14.311 |          498 |            4 |
+|   17 | Accept |      15.751 |     0.60811 |      14.309 |      14.312 |           10 |          535 |
+|   18 | Best   |      14.307 |      71.743 |      14.307 |      14.311 |          499 |            1 |
+|   19 | Accept |      16.941 |     0.48359 |      14.307 |      14.311 |           10 |         6286 |
+|   20 | Accept |      14.601 |      41.219 |      14.307 |      14.311 |          497 |           24 |
+|=====================================================================================================|
+| Iter | Eval   | Objective:  | Objective   | BestSoFar   | BestSoFar   | NumLearningC-|  MinLeafSize |
+|      | result | log(1+loss) | runtime     | (observed)  | (estim.)    | ycles        |              |
+|=====================================================================================================|
+|   21 | Accept |      16.941 |       16.56 |      14.307 |      14.311 |          485 |         6288 |
+|   22 | Accept |      15.267 |     0.69901 |      14.307 |      14.311 |           10 |          154 |
+|   23 | Accept |      14.993 |       33.81 |      14.307 |      14.311 |          498 |           83 |
+|   24 | Accept |      14.385 |      1.3838 |      14.307 |      14.311 |           10 |            2 |
+|   25 | Accept |      16.036 |       23.05 |      14.307 |      14.312 |          498 |         1124 |
+|   26 | Accept |      14.591 |     0.94572 |      14.307 |      14.311 |           10 |           17 |
+|   27 | Accept |      14.442 |      1.2617 |      14.307 |      14.311 |           10 |            5 |
+|   28 | Accept |      14.478 |      47.779 |      14.307 |      14.311 |          499 |           13 |
+|   29 | Accept |       14.34 |      64.505 |      14.307 |      14.311 |          498 |            3 |
+|   30 | Accept |        14.4 |       1.355 |      14.307 |      14.311 |           10 |            3 |
+
+__________________________________________________________
+Optimization completed.
+MaxObjectiveEvaluations of 30 reached.
+Total function evaluations: 30
+Total elapsed time: 1061.4054 seconds
+Total objective function evaluation time: 1028.2531
+
+Best observed feasible point:
+    NumLearningCycles    MinLeafSize
+    _________________    ___________
+
+           499                1     
+
+Observed objective function value = 14.3067
+Estimated objective function value = 14.3114
+Function evaluation time = 71.7433
+
+Best estimated feasible point (according to models):
+    NumLearningCycles    MinLeafSize
+    _________________    ___________
+
+           499                1     
+
+Estimated objective function value = 14.3114
+Estimated function evaluation time = 72.7077
+
+
+mdl = 
+
+  RegressionBaggedEnsemble
+                       PredictorNames: {1×31 cell}
+                         ResponseName: 'Y'
+                CategoricalPredictors: []
+                    ResponseTransform: 'none'
+                      NumObservations: 12576
+    HyperparameterOptimizationResults: [1×1 BayesianOptimization]
+                           NumTrained: 499
+                               Method: 'Bag'
+                         LearnerNames: {'Tree'}
+                 ReasonForTermination: 'Terminated normally after completing the requested number of training cycles.'
+                              FitInfo: []
+                   FitInfoDescription: 'None'
+                       Regularization: []
+                            FResample: 1
+                              Replace: 1
+                     UseObsForLearner: [12576×499 logical]
+
+
+  Properties, Methods
