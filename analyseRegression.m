@@ -34,5 +34,53 @@ function [mae, rmse] = analyseRegression(y_true, y_pred, X, ModelName)
     sumResiduals = sum(residuals);
     
     % Format display of RMSE & MAE
-    disp(array2table(["RMSE", string(rmse); "MAE", string(mae); 'Residual Sum', string(sumResiduals)], 'VariableNames', [strcat(ModelName,": Stats"), "Number"]))
+    disp(array2table(["RMSE", string(rmse); "MAE", string(mae); 'Residual Sum', string(sumResiduals)], 'VariableNames', [strcat(ModelName,": Stats"), "Number"]));
+    
+    % Display graphs of how well some of the features predict the price
+    f2 = figure('Name', strcat(ModelName, " Features versus price"));
+    f2.Position = [200, 200, 800, 560];
+    
+    % Year versus price
+    subplot(2,2,1);
+    scatter(X.year, y_true);
+    xlabel("Year");
+    ylabel("Price");
+    title(strcat(ModelName, ": Year v price"));
+    hold on
+    scatter(X.year, y_pred, [],'x');
+    hold off
+    legend("True", "Prediction");
+    
+    % Mileage versus price
+    subplot(2,2,2);
+    scatter(X.mileage, y_true);
+    xlabel("Mileage");
+    ylabel("Price");
+    title(strcat(ModelName, ": Mileage v price"));
+    hold on
+    scatter(X.mileage, y_pred, [],'x');
+    hold off
+    legend("True", "Prediction");
+    
+    % MPG versus price
+    subplot(2,2,3);
+    scatter(X.mpg, y_true);
+    xlabel("MPG");
+    ylabel("Price");
+    title(strcat(ModelName, ": MPG v price"));
+    hold on
+    scatter(X.mpg, y_pred, [],'x');
+    hold off
+    legend("True", "Prediction");
+    
+    % Engine Size versus price
+    subplot(2,2,4);
+    scatter(X.engineSize, y_true);
+    xlabel("Engine Size");
+    ylabel("Price");
+    title(strcat(ModelName, ": Engine Size v price"));
+    hold on
+    scatter(X.engineSize, y_pred, [],'x');
+    hold off
+    legend("True", "Prediction");
 end
