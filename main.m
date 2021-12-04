@@ -190,14 +190,14 @@ y_valid = y_train(idxTest2);
 clear numrows2 cvpart2 idxTrain2 idxTest2
 
 % Optimised model
-mdlLR = fitrlinear(train_data2, y_train2, 'Lambda', 0.0002972, ...
+mdlLR = fitrlinear(train_data_normed, y_train, 'Lambda', 0.0002972, ...
       'Learner', 'leastsquares', 'Regularization', 'ridge', ...
       'Solver', 'bfgs', 'FitBias', true, 'PostFitBias', false, 'OptimizeLearnRate', false);%'ValidationData', {valid_data, y_valid},
 %mdlLR = fitrlinear(train_data_normed, y_train, 'Lambda', 0.00017074,...
 %    'Learner', 'leastsquares', 'Regularization', 'ridge', 'Solver', 'bfgs');
 
 % predict y
-y_pred = predict(mdlLR, test_data_normed{:,:});
+y_pred = predict(mdlLR, test_data_normed);
 
 % Analyse the regression
 [LRmae, LRrmse] = analyseRegression(y_test, y_pred, test_data, "Linear Regression");
