@@ -2,7 +2,10 @@ function [mae, rmse] = analyseRegression(y_true, y_pred, X, ModelName)
     %% analyseRegression This is to analyse the results of the regression
     % Plot the actual values against the predicted ones
     residuals = y_pred - y_true;
-    figure('Name', strcat(ModelName,": Predictions vs Actual"))
+    %figure('Name', strcat(ModelName,": Predictions vs Actual"))
+    f = figure('Name', strcat(ModelName, " Analysis"));
+    f.Position = [200, 200, 800, 560];
+    subplot(1,2,1);
     scatter(y_pred, y_true);
     m = max([y_true y_pred]);
     hold on
@@ -14,7 +17,8 @@ function [mae, rmse] = analyseRegression(y_true, y_pred, X, ModelName)
     legend('Predictions', 'Ideal Line', "Location", "northwest");
 
     % Plot residuals as a histogram
-    figure('Name', strcat(ModelName,": Histogram of residuals"))
+    %figure('Name', strcat(ModelName,": Histogram of residuals"))
+    subplot(1,2,2);
     histogram(residuals);
     title(strcat("Histogram of residuals ", ModelName));
     xlabel("Residuals");
