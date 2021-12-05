@@ -51,3 +51,7 @@ Then run step 3
 ```
 
 From https://uk.mathworks.com/help/matlab/ref/matlab.codetools.requiredfilesandproducts.html
+
+
+## TODO:
+- NMSE https://moodle.city.ac.uk/pluginfile.php/2549555/mod_resource/content/1/Lecture_2_Project_discussion.pdf p18, https://uk.mathworks.com/help/ident/ref/goodnessoffit.html
