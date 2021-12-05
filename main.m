@@ -3,7 +3,7 @@
 clc; clear; close all;
 
 % Set the seed
-rng(42);
+rng(52);
 %% Load the data
 data = readtable('data/ford.csv');
 
