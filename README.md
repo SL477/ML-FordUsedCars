@@ -35,10 +35,14 @@ Then run step 3
 | Appendix.docx | Extra Data for the poster |
 | GetData.sh | Bash command to download the dataset |
 | GetSummaryStats.m | Function similar to pandas summary stats |
+| Kuga Hybrid MPG adjustments.xlsx | A file I used to work out whether the hybrid Kuga MPG amount was reasonable |
 | main.m | Main MatLab program |
 | Makefie | File for bash commands to live in |
+| OptimiseRandomForest.m | The script used to get the optimum hyperparameters for Random Forest |
 | OptimizeLinearRegression.m | The script used to get the optimum hyperparameters for Linear Regression |
 | Output of OptimizeLinearRegression.txt | The output of the run of OptimizeLinearRegression.m |
+| Output of OptimizeRandomForest.txt | The output of OptimizeRandomForest.m with all of the auto parameters |
+| Output of OptimizeRandomForest2.txt | The output of OptimizeRandomForest.m with it being forced to use the Bag method |
 | Poster.pptx | The raw file for the poster |
 | README.md | This readme file |
 | readme.txt | A reduced version of this file |

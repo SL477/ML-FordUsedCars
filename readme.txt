@@ -4,6 +4,7 @@ Required software
 - MATLAB 9.10
 - Statistics and Machine Learning Toolbox, version 12.1
 - GetSummaryStats.m (in folder)
+- analyseRegression.m (in folder)
 
 Setup
 1. Create folder data
