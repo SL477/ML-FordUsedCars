@@ -59,3 +59,8 @@ From https://uk.mathworks.com/help/matlab/ref/matlab.codetools.requiredfilesandp
 
 ## TODO:
 - NMSE https://moodle.city.ac.uk/pluginfile.php/2549555/mod_resource/content/1/Lecture_2_Project_discussion.pdf p18, https://uk.mathworks.com/help/ident/ref/goodnessoffit.html
+- Define ridge & lasso regression & LFGS (or whatever the accroynm is).
+- Sort out intermediate results
+- Sort out commented code
+- Translate code to Python
+- Sort out poster
