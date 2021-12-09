@@ -63,4 +63,3 @@ From https://uk.mathworks.com/help/matlab/ref/matlab.codetools.requiredfilesandp
 - Sort out commented code
 - Translate code to Python
 - Sort out poster
-- Use reference: https://scott.fortmann-roe.com/docs/BiasVariance.html for Random Forest
