@@ -34,7 +34,9 @@ function [mae, rmse] = analyseRegression(y_true, y_pred, X, ModelName)
     sumResiduals = sum(residuals);
     
     % Format display of RMSE & MAE
-    disp(array2table(["RMSE", string(rmse); "MAE", string(mae); 'Residual Sum', string(sumResiduals)], 'VariableNames', [strcat(ModelName,": Stats"), "Number"]));
+    disp(array2table(["RMSE", string(rmse); 
+        "MAE", string(mae); 
+        "Residual Sum", string(sumResiduals)], 'VariableNames', [strcat(ModelName,": Stats"), "Number"]));
     
     % Display graphs of how well some of the features predict the price
     f2 = figure('Name', strcat(ModelName, " Features versus price"));

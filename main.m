@@ -162,11 +162,11 @@ test_data.price = [];
 % Exclude the categorical columns from the normalization to avoid issues
 % Used https://uk.mathworks.com/help/matlab/ref/double.normalize.html to
 % figure out how to do it
-train_data_normed = normalize(train_data, 'DataVariables', ["year", "mileage", "mpg","engineSize"]);
-test_data_normed = normalize(test_data, 'DataVariables', ["year", "mileage", "mpg","engineSize"]);
+[train_data_normed, centre, scale] = normalize(train_data, 'DataVariables', ["year", "mileage", "mpg","engineSize"]);
+test_data_normed = normalize(test_data, "center", centre, "scale", scale, 'DataVariables', ["year", "mileage", "mpg","engineSize"]);
 
 % tidy up variables in the workspace
-clear data2 colNames curcol dummyEnc dummyNames i idxTest idxTrain categoryCols numberCols numrows useCols
+clear data2 colNames curcol dummyEnc dummyNames i idxTest idxTrain categoryCols numberCols numrows useCols centre scale
 
 %% Linear Regression
 % Use https://uk.mathworks.com/help/stats/fitrlinear.html?searchHighlight=fitrlinear&s_tid=srchtitle_fitrlinear_1
