@@ -64,3 +64,5 @@ From https://uk.mathworks.com/help/matlab/ref/matlab.codetools.requiredfilesandp
 - Sort out commented code
 - Translate code to Python
 - Sort out poster
+- NMSE - accuracy = 1 - NMSE
+- Sort out normalisation so that both are normalised the same way
