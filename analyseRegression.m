@@ -33,10 +33,16 @@ function [mae, rmse] = analyseRegression(y_true, y_pred, X, ModelName)
     % Sum residuals, they should add to zero for Linear Regression
     sumResiduals = sum(residuals);
     
+    % NMSE 
+    % Equation from https://uk.mathworks.com/help/ident/ref/goodnessoffit.html
+    meanY = mean(y_true);
+    nmse = sum((y_true - y_pred) .^ 2) / sum((y_true - meanY) .^ 2);
+    
     % Format display of RMSE & MAE
     disp(array2table(["RMSE", string(rmse); 
         "MAE", string(mae); 
-        "Residual Sum", string(sumResiduals)], 'VariableNames', [strcat(ModelName,": Stats"), "Number"]));
+        "Residual Sum", string(sumResiduals);
+        "Accuracy (1-NMSE)", string(1 - nmse)], 'VariableNames', [strcat(ModelName,": Stats"), "Number"]));
     
     % Display graphs of how well some of the features predict the price
     f2 = figure('Name', strcat(ModelName, " Features versus price"));

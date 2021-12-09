@@ -163,6 +163,7 @@ test_data.price = [];
 % Used https://uk.mathworks.com/help/matlab/ref/double.normalize.html to
 % figure out how to do it
 [train_data_normed, centre, scale] = normalize(train_data, 'DataVariables', ["year", "mileage", "mpg","engineSize"]);
+% fixed so that the test set is normalised the same way as the training set
 test_data_normed = normalize(test_data, "center", centre, "scale", scale, 'DataVariables', ["year", "mileage", "mpg","engineSize"]);
 
 % tidy up variables in the workspace
