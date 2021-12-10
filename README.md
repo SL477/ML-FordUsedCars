@@ -63,3 +63,4 @@ From https://uk.mathworks.com/help/matlab/ref/matlab.codetools.requiredfilesandp
 - Sort out commented code
 - Translate code to Python
 - Sort out poster
+- Use k fold cross validation to see if that improves the error
