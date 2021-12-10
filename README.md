@@ -64,3 +64,6 @@ From https://uk.mathworks.com/help/matlab/ref/matlab.codetools.requiredfilesandp
 - Translate code to Python
 - Sort out poster
 - Use k fold cross validation to see if that improves the error
+- Feature importance
+- Run graph of runs of number trees in forest and their accuracy
+- Lasso and ridge regression to see which features are most important
