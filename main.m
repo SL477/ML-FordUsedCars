@@ -189,7 +189,15 @@ y_valid = y_train(idxTest2);
 clear numrows2 cvpart2 idxTrain2 idxTest2
 
 % Optimised model
-mdlLR = fitrlinear(train_data_normed, y_train, 'Lambda', 0.000010015, 'Learner', 'leastsquares', 'Regularization', 'ridge', 'Solver', 'bfgs', 'FitBias', true, 'PostFitBias', false, 'OptimizeLearnRate', false);% 'ValidationData', {valid_data, y_valid}
+%mdlLR = fitrlinear(train_data_normed, y_train, 'Lambda', 0.000010015, 'Learner', 'leastsquares', 'Regularization', 'ridge', 'Solver', 'bfgs', 'FitBias', true, 'PostFitBias', false, 'OptimizeLearnRate', false);% 'ValidationData', {valid_data, y_valid}
+cvmdlLR = fitrlinear(train_data_normed, y_train, 'Lambda', 0.000010015, 'Learner', 'leastsquares', 'Regularization', 'ridge', 'Solver', 'bfgs', 'FitBias', true, 'PostFitBias', false, 'OptimizeLearnRate', false, 'KFold', 5);
+
+% for i = 1:5
+%     y_pred = predict(cvmdlLR.Trained{i}, test_data_normed);
+%     [mae, rmse] = analyseRegression(y_test, y_pred, test_data_normed, strcat("LR - ", string(i)));
+% end
+
+mdlLR = cvmdlLR.Trained{1}; % the best one
 
 %mdlLR = fitrlinear(train_data_normed, y_train, 'Lambda', 0.00017074,...
 %    'Learner', 'leastsquares', 'Regularization', 'ridge', 'Solver', 'bfgs');
