@@ -63,3 +63,4 @@ From https://uk.mathworks.com/help/matlab/ref/matlab.codetools.requiredfilesandp
 - Translate code to Python
 - Sort out poster
 - Lasso and ridge regression to see which features are most important
+- Rewrite implementation details
