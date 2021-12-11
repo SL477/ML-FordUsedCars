@@ -90,7 +90,7 @@ for i = 1: width(data)
     end
 end
 
-% TODO: should the hybrid fords have their MPG amount changed from 202 to
+% Should the hybrid fords have their MPG amount changed from 202 to
 % something more resonable? Are they plug in hybrids? If not calculate
 % based on MPG of the engine plus/averaged with their range on battery. If
 % they are recreate the calculation done for the electric cars
@@ -204,14 +204,11 @@ y_pred = predict(mdlLR, test_data_normed);
 % currently the residuals sum to -13k,
 
 %% Random Forest Regression
-
 % https://uk.mathworks.com/help/stats/fitrensemble.html
 
 % Fit model
-% mdlRF = fitrensemble(train_data, y_train);
- t = templateTree('MinLeafSize', 1);
-% mdlRF = fitrensemble(train_data, y_train, 'Method', 'LSBoost', 'NumLearningCycles', 193, 'LearnRate', 0.38119, 'Learners',t);
-% % update method to Bag so that it uses random forest
+t = templateTree('MinLeafSize', 1);
+% update method to Bag so that it uses random forest
 mdlRF = fitrensemble(train_data, y_train, 'Method', 'Bag', 'NumLearningCycles', 499, 'Learners',t);
 
 % Predict y
@@ -219,3 +216,6 @@ y_pred_rf = predict(mdlRF, test_data);
 
 % Analyse the regression
 [RFmae, RFrmse] = analyseRegression(y_test, y_pred_rf, test_data, "Random Forest");
+
+%% Feature importance
+% Linear Regression

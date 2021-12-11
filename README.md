@@ -35,6 +35,7 @@ Then run step 3
 | Appendix.docx | Extra Data for the poster |
 | GetData.sh | Bash command to download the dataset |
 | GetSummaryStats.m | Function similar to pandas summary stats |
+| Intermediate Results.xlsx| Spreadsheet of all of the intermediate results |
 | Kuga Hybrid MPG adjustments.xlsx | A file I used to work out whether the hybrid Kuga MPG amount was reasonable |
 | main.m | Main MatLab program |
 | Makefie | File for bash commands to live in |
@@ -59,11 +60,9 @@ From https://uk.mathworks.com/help/matlab/ref/matlab.codetools.requiredfilesandp
 
 ## TODO:
 - Define ridge & lasso regression & LFGS (or whatever the accroynm is).
-- Sort out intermediate results
 - Sort out commented code
 - Translate code to Python
 - Sort out poster
 - Use k fold cross validation to see if that improves the error
-- Feature importance
-- Run graph of runs of number trees in forest and their accuracy
+- Feature importance for Linear Regression & Random Forest
 - Lasso and ridge regression to see which features are most important
