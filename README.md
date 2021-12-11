@@ -33,6 +33,7 @@ Then run step 3
 | --------- | ----------- |
 | analyseRegression.m | Holds the function analyseRegression so that both models are analysed the same |
 | Appendix.docx | Extra Data for the poster |
+| FeatureImportance.m | Get the feature importances |
 | GetData.sh | Bash command to download the dataset |
 | GetSummaryStats.m | Function similar to pandas summary stats |
 | Intermediate Results.xlsx| Spreadsheet of all of the intermediate results |
@@ -64,5 +65,4 @@ From https://uk.mathworks.com/help/matlab/ref/matlab.codetools.requiredfilesandp
 - Translate code to Python
 - Sort out poster
 - Use k fold cross validation to see if that improves the error
-- Feature importance for Linear Regression & Random Forest
 - Lasso and ridge regression to see which features are most important

@@ -167,7 +167,7 @@ test_data.price = [];
 test_data_normed = normalize(test_data, "center", centre, "scale", scale, 'DataVariables', ["year", "mileage", "mpg","engineSize"]);
 
 % tidy up variables in the workspace
-clear data2 colNames curcol dummyEnc dummyNames i idxTest idxTrain categoryCols numberCols numrows useCols centre scale
+clear data2 curcol dummyEnc dummyNames i idxTest idxTrain categoryCols numberCols numrows useCols centre scale
 
 %% Linear Regression
 % Use https://uk.mathworks.com/help/stats/fitrlinear.html?searchHighlight=fitrlinear&s_tid=srchtitle_fitrlinear_1
@@ -217,5 +217,3 @@ y_pred_rf = predict(mdlRF, test_data);
 % Analyse the regression
 [RFmae, RFrmse] = analyseRegression(y_test, y_pred_rf, test_data, "Random Forest");
 
-%% Feature importance
-% Linear Regression
