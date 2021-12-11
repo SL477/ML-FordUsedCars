@@ -52,9 +52,7 @@ for i = 1: width(data)
 end
 
 % Move the Fuel Type Other to be electric, as it is mis-classified
-%data(data.fuelType == 'Other',:).fuelType = 'Electric';
 % Uses https://uk.mathworks.com/help/matlab/ref/categorical.mergecats.html
-% to merge the Other category into Electric
 data.fuelType = mergecats(data.fuelType, {'Electric', 'Other'});
 
 % Graph against price
