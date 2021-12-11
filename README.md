@@ -62,5 +62,4 @@ From https://uk.mathworks.com/help/matlab/ref/matlab.codetools.requiredfilesandp
 ## TODO:
 - Translate code to Python
 - Sort out poster
-- Use k fold cross validation to see if that improves the error
 - Lasso and ridge regression to see which features are most important
