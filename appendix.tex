@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,11pt]{article}
 \usepackage{graphicx}
 \usepackage[numbers]{natbib}
 % Used https://tex.stackexchange.com/questions/420588/numbered-citations-in-latex for citation numbes
@@ -17,14 +17,14 @@ Appendix
 	\item Decision Tree Regression – splits the data into distinct regions with the region’s mean being the response to a prediction \citep{james_gareth_introduction_2021} (paraphrased)
 	\item Hyperparameter – a parameter of the machine learning model (so named as machine learning models are used to find the parameters of a model)
 	\item Lasso Regression – Least Absolute Shrinkage and Selection Operator. Tries to eliminate as many features as possible when performing the regression to have as sparse a model as possible \citep{stephanie_lasso_2015}
-	\item Linear Regression: an algorithm which attempts to fit an equation of the form Y = wX + c to the data so that its error to the true value is minimised as far as possible
+	\item Linear Regression: an algorithm which attempts to fit an equation of the form $Y = wX + c$ to the data so that its error to the true value is minimised as far as possible
 	\item Normalised: the data is shifted so that its mean is zero and rescaled to move its standard deviation to 1. I am excluding the zero/one categorical columns from this, as it doesn’t make sense to include them.
 	\item Random Forest Regression – a collection of decision tree regressors (hence the forest) that behaves as a single model as the average prediction is returned from the collection of decision tree results. Each individual tree is trained using “bagging and random features” \citep{schapire_robert_random_2001}. A random subset of features is given to each tree.
 	\item Ridge Regression – allows for models where the number of features is greater than the number of predictors and allows interactions between features. “Adds just enough bias to make the estimates reasonably reliable” \citep{stephanie_ridge_2017} (paraphrased and directly quoted) 
 \end{itemize}
 
 \section{Intermediate results}
-\begin{longtable}{m{4cm}m{6cm}ccm{2cm}}
+\begin{longtable}{m{3.5cm}m{6.5cm}m{1.5cm}m{1.5cm}m{1.5cm}}
 \toprule
 Type & Hyper-Parameters & RMSE & MAE & Accuracy (1-NMSE) \\
 \midrule
@@ -68,7 +68,7 @@ Random Forest & MinLeafSize, 1, Method, Bag, NumLearningCycles, 499, (columns: m
 \caption{RF Number of Learners versus RMSE}
 \end{figure}
 
-From the above graph you can see that there is not much difference between using 50 trees and 500. I have kept it at 499 as the results against the test set were better (if we cared about computational efficiency, we might cap at around 50 trees).
+From the below graph you can see that there is not much difference between using 50 trees and 500. I have kept it at 499 as the results against the test set were better (if we cared about computational efficiency, we might cap at around 50 trees).
 Using K-Fold validation on Random Forest made the results worse.
 
 \section{Implementation Details}
