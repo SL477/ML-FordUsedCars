@@ -1,4 +1,5 @@
-\documentclass[a4paper,11pt]{article}
+\documentclass[a4pape, 11pt, english]{article}
+\usepackage[margin=1in,footskip=0.25in]{geometry}
 \usepackage{graphicx}
 \usepackage[numbers]{natbib}
 % Used https://tex.stackexchange.com/questions/420588/numbered-citations-in-latex for citation numbes
@@ -6,8 +7,15 @@
 \usepackage{booktabs}
 \usepackage{longtable}
 
+\title{Appendix}
+\author{Thomas Fishwick}
+
 \begin{document}
+%\maketitle
+\begin{center}
+\huge
 Appendix
+\end{center}
 
 \section{Glossary}
 \begin{itemize}
@@ -19,12 +27,12 @@ Appendix
 	\item Lasso Regression – Least Absolute Shrinkage and Selection Operator. Tries to eliminate as many features as possible when performing the regression to have as sparse a model as possible \citep{stephanie_lasso_2015}
 	\item Linear Regression: an algorithm which attempts to fit an equation of the form $Y = wX + c$ to the data so that its error to the true value is minimised as far as possible
 	\item Normalised: the data is shifted so that its mean is zero and rescaled to move its standard deviation to 1. I am excluding the zero/one categorical columns from this, as it doesn’t make sense to include them.
-	\item Random Forest Regression – a collection of decision tree regressors (hence the forest) that behaves as a single model as the average prediction is returned from the collection of decision tree results. Each individual tree is trained using “bagging and random features” \citep{schapire_robert_random_2001}. A random subset of features is given to each tree.
-	\item Ridge Regression – allows for models where the number of features is greater than the number of predictors and allows interactions between features. “Adds just enough bias to make the estimates reasonably reliable” \citep{stephanie_ridge_2017} (paraphrased and directly quoted) 
+	\item Random Forest Regression – a collection of decision tree regressors (hence the forest) that behaves as a single model as the average prediction is returned from the collection of decision tree results. Each individual tree is trained using \textit{“bagging and random features”} \citep{schapire_robert_random_2001}. A random subset of features is given to each tree.
+	\item Ridge Regression – allows for models where the number of features is greater than the number of predictors and allows interactions between features. \textit{“Adds just enough bias to make the estimates reasonably reliable”} \citep{stephanie_ridge_2017} (paraphrased and directly quoted) 
 \end{itemize}
 
 \section{Intermediate results}
-\begin{longtable}{m{3.5cm}m{6.5cm}m{1.5cm}m{1.5cm}m{1.5cm}}
+\begin{longtable}{m{3.4cm}m{6.6cm}m{1.5cm}m{1.5cm}m{1.5cm}}
 \toprule
 Type & Hyper-Parameters & RMSE & MAE & Accuracy (1-NMSE) \\
 \midrule
@@ -64,7 +72,7 @@ Random Forest & MinLeafSize, 1, Method, Bag, NumLearningCycles, 499, (columns: m
 \begin{figure}[!htb] % trick from https://tex.stackexchange.com/questions/32598/force-latex-image-to-appear-in-the-section-in-which-its-declared
 \centering
 % using https://tex.stackexchange.com/questions/198386/input-figures-from-sub-folders
-\includegraphics[height=7.38cm]{img/RFNumLearCyclesVMinMRSE}
+\includegraphics[height=6cm]{img/RFNumLearCyclesVMinMRSE}
 \caption{RF Number of Learners versus RMSE}
 \end{figure}
 
@@ -72,8 +80,24 @@ From the below graph you can see that there is not much difference between using
 Using K-Fold validation on Random Forest made the results worse.
 
 \section{Implementation Details}
+For my implementation of the top models, we chose to use a single script named main to hold the majority of the code. This was to enable the easy running of all sections of code at once. This was also so that it was straightforward to run all of the code from top to bottom and reset all variables so that previous runs couldn't pollute the next run. By setting the data transformations to run each time the code ran we could ensure that our dataset remained pure and allowed for experimentation (such as how changing the hybrid's MPG from 202 to different numbers affected the models (it made the linear regression better and random forest worse)).
 
-\section{References}
+We used the rng function to set the random number seed so that all of the results were reproducible (this has the risk of the models being trapped in local minimums rather than finding the best parameters). Using the seed of 42 rather than 52 gave an RMSE of 1799.16 for Linear Regression (versus 1818.02) and 1115.55 for Random Forest (versus 1177.40). So, there is a much bigger effect on Random Forest, but not much difference for Linear Regression (either way Random Forest performed much better than Linear Regression).
+
+For both models we excluded the tax and transmission type columns. For tax it was because it is derived from other columns and for transmission type it is because it had little effect on the price column.
+
+For linear regression we normalised the training data and then normalised the test data using the same parameters. This dramatically increased the accuracy of the model (the RMSE went from £4782 down to £2428).
+
+Using the script OptimizeLinearRegression we got the generalised hyper-parameters for linear regression, then we used Bayesian optimisation to get a better lambda figure.
+
+For random forest we used the function fitrensemble to train a collection of decision trees (I used a template tree so that we could adjust the minimum leaf size). We then used the script OptimiseRandomForest to find the best hyperparameters for the model. Then within the same script I used Bayesian optimisation to get the optimum number of trees.
+
+To fairly analyse both models (so both were looked at the same way) we used the function analyseRegression, this worked out the MAE, RMSE and 1 - NMSE, then ran off the residual plots and other graphs.
+
+To allow for some experimentation the code in main was sectioned so that the models could be run without needing to rerun the statistics and preparation sections. Long-running sections, such as Feature Importance, experiments with K Fold for Linear Regression and Random Forest and optimising the two models, were placed into their own code files and run once the main script had run.
+So that we could get summary statistics on the data we created the function GetSummaryStats, this was to recreate Python's Pandas describe function in MATLAB. 
+
+
 \bibliographystyle{plainnat}
 \bibliography{MyLibrary}
 
