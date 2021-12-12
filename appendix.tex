@@ -1,0 +1,31 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{graphicx}
+
+\begin{document}
+Appendix
+
+\section{Glossary}
+\begin{itemize}
+	\item Bagging – using sampling with replacement from the data to create artificial training data (bootstrap samples)
+	\item Bayesian Optimisation – a function used to run through an array of different hyperparameters for a machine learning model
+	\item BFGS - (Broyden-Fletcher-Goldfarb-Shanno quasi-Newton algorithm) a second order derivative used to help optimise linear regression. [5] (paraphrased)
+	\item Decision Tree Regression – splits the data into distinct regions with the region’s mean being the response to a prediction [2] (paraphrased)
+	\item Hyperparameter – a parameter of the machine learning model (so named as machine learning models are used to find the parameters of a model)
+	\item Lasso Regression – Least Absolute Shrinkage and Selection Operator. Tries to eliminate as many features as possible when performing the regression to have as sparse a model as possible [3]
+	\item Linear Regression: an algorithm which attempts to fit an equation of the form Y = wX + c to the data so that its error to the true value is minimised as far as possible
+	\item Normalised: the data is shifted so that its mean is zero and rescaled to move its standard deviation to 1. I am excluding the zero/one categorical columns from this, as it doesn’t make sense to include them.
+	\item Random Forest Regression – a collection of decision tree regressors (hence the forest) that behaves as a single model as the average prediction is returned from the collection of decision tree results. Each individual tree is trained using “bagging and random features” [1]. A random subset of features is given to each tree.
+	\item Ridge Regression – allows for models where the number of features is greater than the number of predictors and allows interactions between features. “Adds just enough bias to make the estimates reasonably reliable” [4] (paraphrased and directly quoted) 
+\end{itemize}
+
+\section{Intermediate results}
+
+\begin{figure}[!htb] % trick from https://tex.stackexchange.com/questions/32598/force-latex-image-to-appear-in-the-section-in-which-its-declared
+\centering
+% using https://tex.stackexchange.com/questions/198386/input-figures-from-sub-folders
+\includegraphics[height=7.38cm]{img/RFNumLearCyclesVMinMRSE}
+\caption{RF Number of Learners versus RMSE}
+\end{figure}
+
+
+\end{document}

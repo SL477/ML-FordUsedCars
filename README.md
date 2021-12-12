@@ -64,3 +64,7 @@ From https://uk.mathworks.com/help/matlab/ref/matlab.codetools.requiredfilesandp
 - Sort out poster
 - Lasso and ridge regression to see which features are most important
 - Rewrite implementation details
+
+## LaTex
+https://miktex.org/download
+https://www.learnlatex.org/en/lesson-12
