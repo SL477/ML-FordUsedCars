@@ -33,13 +33,18 @@ Then run step 3
 | --------- | ----------- |
 | analyseRegression.m | Holds the function analyseRegression so that both models are analysed the same |
 | Appendix.docx | Extra Data for the poster |
+| Appendix.tex | Tex file to create the latest version of the appendix |
 | FeatureImportance.m | Get the feature importances |
 | GetData.sh | Bash command to download the dataset |
 | GetSummaryStats.m | Function similar to pandas summary stats |
 | Intermediate Results.xlsx| Spreadsheet of all of the intermediate results |
+| IntermediateResultsTableBuilder.py | To create tex code for the Implementation results |
+| KFoldLR.m | Experiment with KFold for Linear Regression|
+| KFoldRF.m | Experiment with KFold for Random Forest|
 | Kuga Hybrid MPG adjustments.xlsx | A file I used to work out whether the hybrid Kuga MPG amount was reasonable |
 | main.m | Main MatLab program |
 | Makefie | File for bash commands to live in |
+| MyLibrary.bib | My bibliography for use by the tex file |
 | OptimiseRandomForest.m | The script used to get the optimum hyperparameters for Random Forest |
 | OptimizeLinearRegression.m | The script used to get the optimum hyperparameters for Linear Regression |
 | Output of OptimizeLinearRegression.txt | The output of the run of OptimizeLinearRegression.m |
@@ -62,8 +67,6 @@ From https://uk.mathworks.com/help/matlab/ref/matlab.codetools.requiredfilesandp
 ## TODO:
 - Translate code to Python
 - Sort out poster
-- Lasso and ridge regression to see which features are most important
-- Rewrite implementation details
 
 ## LaTex
 https://miktex.org/download
