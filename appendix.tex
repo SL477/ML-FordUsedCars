@@ -2,6 +2,9 @@
 \usepackage{graphicx}
 \usepackage[numbers]{natbib}
 % Used https://tex.stackexchange.com/questions/420588/numbered-citations-in-latex for citation numbes
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
 
 \begin{document}
 Appendix
@@ -21,6 +24,42 @@ Appendix
 \end{itemize}
 
 \section{Intermediate results}
+\begin{longtable}{m{4cm}m{6cm}ccm{2cm}}
+\toprule
+Type & Hyper-Parameters & RMSE & MAE & Accuracy (1-NMSE) \\
+\midrule
+Linear Regression & Default (columns: model, year, mileage, fuel type, MPG, engine size) & 4782.14 & 3602.55 & -0.04 \\
+\addlinespace
+Linear Regression & Default (columns: model, year, mileage, fuel type, MPG, engine size), Normalised & 2427.54 & 1717.89 & 0.73 \\
+\addlinespace
+Linear Regression & Lambda', 0.0002972, 'Learner', 'leastsquares', 'Regularization', 'ridge', 'Solver', 'bfgs' (columns: model, year, mileage, fuel type, MPG, engine size), Normalised & 1828.18 & 1346.7 & 0.85 \\
+\addlinespace
+Linear Regression & Lambda', 0.0002972, 'Learner', 'leastsquares', 'Regularization', 'ridge', 'Solver', 'bfgs' (columns: model, year, mileage, fuel type, MPG, engine size), Normalised, with validation data & 1837.15 & 1350.96 & 0.85 \\
+\addlinespace
+Linear Regression & Lambda', 0.000010015, 'Learner', 'leastsquares', 'Regularization', 'ridge', 'Solver', 'bfgs' (columns: model, year, mileage, fuel type, MPG, engine size), Normalised, validation & 1859.48 & 1358.33 & 0.84 \\
+\addlinespace
+Linear Regression & Lambda', 0.000010015, 'Learner', 'leastsquares', 'Regularization', 'ridge', 'Solver', 'bfgs' (columns: model, year, mileage, fuel type, MPG, engine size), Normalised & 1826.26 & 1347.21 & 0.85 \\
+\addlinespace
+Linear Regression & Lambda', 0.000010015, 'Learner', 'leastsquares', 'Regularization', 'ridge', 'Solver', 'bfgs', 'Kfold', 5 (columns: model, year, mileage, fuel type, MPG, engine size), Normalised (1st model) & 1818.02 & 1344.83 & 0.85 \\
+\addlinespace
+Random Forest & Default (columns: model, year, mileage, fuel type, MPG, engine size) & 1279.66 & 889.33 & 0.93 \\
+\addlinespace
+Random Forest (technically boosted forest) & MinLeafSize, 31, Method, LSBoost, NumLearningCycles, 193, LearnRate 0.38119. (columns: model, year, mileage, fuel type, MPG, engine size). & 1185.69 & 837.56 & 0.94 \\
+\addlinespace
+Random Forest & MinLeafSize, 31, Method, Bag, NumLearningCycles, 193, (columns: model, year, mileage, fuel type, MPG, engine size). & 1398.75 & 968.24 & 0.91 \\
+\addlinespace
+Random Forest & MinLeafSize, 1, Method, Bag, NumLearningCycles, 499, (columns: model, year, mileage, fuel type, MPG, engine size). & 1175.02 & 838.02 & 0.94 \\
+\addlinespace
+Random Forest & MinLeafSize, 1, Method, Bag, NumLearningCycles, 450, (columns: model, year, mileage, fuel type, MPG, engine size). & 1175.03 & 838.63 & 0.94 \\
+\addlinespace
+Random Forest & MinLeafSize, 1, Method, Bag, NumLearningCycles, 50, (columns: model, year, mileage, fuel type, MPG, engine size). & 1178.42 & 839.35 & 0.94 \\
+\addlinespace
+Random Forest & MinLeafSize, 1, Method, Bag, NumLearningCycles, 500, (columns: model, year, mileage, fuel type, MPG, engine size). & 1174.68 & 838.28 & 0.94 \\
+\addlinespace
+Random Forest & MinLeafSize, 1, Method, Bag, NumLearningCycles, 499, (columns: model, year, mileage, fuel type, MPG, engine size). & 1177.4 & 839.2 & 0.94 \\
+\addlinespace
+\bottomrule
+\end{longtable}
 
 \begin{figure}[!htb] % trick from https://tex.stackexchange.com/questions/32598/force-latex-image-to-appear-in-the-section-in-which-its-declared
 \centering
