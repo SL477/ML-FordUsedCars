@@ -66,7 +66,6 @@ From https://uk.mathworks.com/help/matlab/ref/matlab.codetools.requiredfilesandp
 
 ## TODO:
 - Translate code to Python
-- Sort out poster
 
 ## LaTex
 https://miktex.org/download
