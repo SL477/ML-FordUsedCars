@@ -61,6 +61,9 @@ Linear Regression & Lambda', 0.000010015, 'Learner', 'leastsquares', 'Regulariza
 Linear Regression & Lambda', 0.000010015, 'Learner', 'leastsquares', 'Regularization', 'ridge', 'Solver', 'bfgs', 'Kfold', 5 (columns: model, year, mileage, fuel type, MPG, engine size), Normalised (1st model) & 1818.02 & 1344.83 & 0.85 \\
 \addlinespace
 \hline
+Linear Regression & Lambda', 0.000010015, 'Learner', 'leastsquares', 'Regularization', 'ridge', 'Solver', 'bfgs', 'Kfold', 5 (columns: model, year, mileage, fuel type, MPG, engine size), Normalised (average of models) & 1826.27 & 1347.26 & 0.85 \\
+\addlinespace
+\hline
 Random Forest & Default (columns: model, year, mileage, fuel type, MPG, engine size) & 1279.66 & 889.33 & 0.93 \\
 \addlinespace
 \hline
@@ -84,10 +87,16 @@ Random Forest & MinLeafSize, 1, Method, Bag, NumLearningCycles, 500, (columns: m
 \hline
 Random Forest & MinLeafSize, 1, Method, Bag, NumLearningCycles, 499, (columns: model, year, mileage, fuel type, MPG, engine size). & 1177.4 & 839.2 & 0.94 \\
 \addlinespace
-\bottomrule
+\hline
+Random Forest & MinLeafSize, 1, Method, Bag, NumLearningCycles, 499, (columns: model, year, mileage, fuel type, MPG, engine size). Kfold (average of models) & 1182.52 & 843.05 & 0.94 \\
+\addlinespace
+\hline
+Random Forest & MinLeafSize, 1, Method, Bag, NumLearningCycles, 50, Kfold, 5, CrossVal, On, (columns: model, year, mileage, fuel type, MPG, engine size). Kfold (average of models) & 1185.95 & 842.7 & 0.94 \\
+\addlinespace
+\hline
 \end{longtable}
 
-\begin{figure}[!htb] % trick from https://tex.stackexchange.com/questions/32598/force-latex-image-to-appear-in-the-section-in-which-its-declared
+\begin{figure}%[!htb] % trick from https://tex.stackexchange.com/questions/32598/force-latex-image-to-appear-in-the-section-in-which-its-declared
 \centering
 % using https://tex.stackexchange.com/questions/198386/input-figures-from-sub-folders
 \includegraphics[height=6cm]{img/RFNumLearCyclesVMinMRSE}

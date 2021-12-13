@@ -51,6 +51,7 @@ Then run step 3
 | Output of OptimizeRandomForest.txt | The output of OptimizeRandomForest.m with all of the auto parameters |
 | Output of OptimizeRandomForest2.txt | The output of OptimizeRandomForest.m with it being forced to use the Bag method |
 | Poster.pptx | The raw file for the poster |
+| predictCombinedMdl.m | Average out the predictions of a cross-validated model |
 | README.md | This readme file |
 | readme.txt | A reduced version of this file |
 | SummaryStats.xlsx | Used to format the summary statistics output from MatLab prior to use in the Poster |
@@ -66,7 +67,6 @@ From https://uk.mathworks.com/help/matlab/ref/matlab.codetools.requiredfilesandp
 
 ## TODO:
 - Translate code to Python
-- KFold Predict for random forest and linear regression
 
 ## LaTex
 https://miktex.org/download
