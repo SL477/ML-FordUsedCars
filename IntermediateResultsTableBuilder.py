@@ -15,7 +15,7 @@ def main()->str:
 
     for i in df.itertuples():
         ret += "\n" + i.Type + " & " + i._2 + " & " + str(i.RMSE) + " & " + str(i.MAE) + " & " + str(i._5) + " \\\\"
-        ret += "\n\\addlinespace"
+        ret += "\n\\addlinespace\n\\hline"
         #print(i)
 
     ret += "\n\\bottomrule\n\\end{longtable}"

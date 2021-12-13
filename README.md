@@ -67,7 +67,6 @@ From https://uk.mathworks.com/help/matlab/ref/matlab.codetools.requiredfilesandp
 ## TODO:
 - Translate code to Python
 - Define features and predictors and remove I from appendix & poster
-- Horizontal lines in table
 - Hyperparameter, be consistent in spelling
 - KFold Predict for random forest and linear regression
 
