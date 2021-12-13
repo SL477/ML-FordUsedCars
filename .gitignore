@@ -5,4 +5,4 @@ data/
 ~*.xlsx
 ~*.tmp
 *.gz
-appendix.pdf
+submission/

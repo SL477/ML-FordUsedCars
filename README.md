@@ -32,7 +32,7 @@ Then run step 3
 | File Name | Description |
 | --------- | ----------- |
 | analyseRegression.m | Holds the function analyseRegression so that both models are analysed the same |
-| Appendix.docx | Extra Data for the poster |
+| Appendix.pdf | Extra Data for the poster |
 | Appendix.tex | Tex file to create the latest version of the appendix |
 | FeatureImportance.m | Get the feature importances |
 | GetData.sh | Bash command to download the dataset |
@@ -50,6 +50,7 @@ Then run step 3
 | Output of OptimizeLinearRegression.txt | The output of the run of OptimizeLinearRegression.m |
 | Output of OptimizeRandomForest.txt | The output of OptimizeRandomForest.m with all of the auto parameters |
 | Output of OptimizeRandomForest2.txt | The output of OptimizeRandomForest.m with it being forced to use the Bag method |
+| Poster.pdf | The final file for the poster |
 | Poster.pptx | The raw file for the poster |
 | predictCombinedMdl.m | Average out the predictions of a cross-validated model |
 | README.md | This readme file |
@@ -70,4 +71,17 @@ From https://uk.mathworks.com/help/matlab/ref/matlab.codetools.requiredfilesandp
 
 ## LaTex
 https://miktex.org/download
-https://www.learnlatex.org/en/lesson-12
+
+## Running the models (main)
+Keep the data in the folder data, then run main.m to run both models off against each other and generate the majority of the graphs.
+
+
+## Supplementary code
+### Feature Importance
+This is used to see which features the models use (needs main to have run first).
+
+### KFoldLR/KFoldRF
+These were used to experiment with using K-Fold validation on the models (needs main to have run first). These require the function in predictCombinedMdl to run.
+
+### OptimiseRandomForest/OptimiseLinearRegression
+These were used to find the best hyperparameters for the relevant models (needs main to have run first).
