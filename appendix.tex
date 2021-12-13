@@ -94,12 +94,15 @@ Random Forest & MinLeafSize, 1, Method, Bag, NumLearningCycles, 499, (columns: m
 Random Forest & MinLeafSize, 1, Method, Bag, NumLearningCycles, 50, Kfold, 5, CrossVal, On, (columns: model, year, mileage, fuel type, MPG, engine size). Kfold (average of models) & 1185.95 & 842.7 & 0.94 \\
 \addlinespace
 \hline
+Random Forest & MinLeafSize, 1, Method, Bag, NumLearningCycles, 100, (columns: model, year, mileage, fuel type, MPG, engine size). & 1172.39 & 836.57 & 0.94 \\
+\addlinespace
+\hline
 \end{longtable}
 
 \section{Implementation Details}
 For the implementation of the top models, we chose to use a single script named main to hold the majority of the code. This was to enable the easy running of all sections of code at once. This was also so that it was straightforward to run all of the code from top to bottom and reset all variables so that previous runs couldn't pollute the next run. By setting the data transformations to run each time the code ran we could ensure that our dataset remained pure and allowed for experimentation (such as how changing the hybrid's MPG from 202 to different numbers affected the models (it made the linear regression better and random forest worse)).
 
-We used the rng function to set the random number seed so that all of the results were reproducible (this has the risk of the models being trapped in local minimums rather than finding the best parameters). Using the seed of 42 rather than 52 gave an RMSE of 1799.16 for Linear Regression (versus 1818.02) and 1115.55 for Random Forest (versus 1177.40). So, there is a much bigger effect on Random Forest, but not much difference for Linear Regression (either way Random Forest performed much better than Linear Regression).
+We used the rng function to set the random number seed so that all of the results were reproducible (this has the risk of the models being trapped in local minimums rather than finding the best parameters). Using the seed of 42 rather than 52 gave an RMSE of 1799.16 for Linear Regression (versus 1818.02) and 1120.16 for Random Forest (versus 1172.39). So, there is a much bigger effect on Random Forest, but not much difference for Linear Regression (either way Random Forest performed much better than Linear Regression).
 
 For both models we excluded the tax and transmission type columns. For tax it was because it is derived from other columns and for transmission type it is because it had little effect on the price column.
 
