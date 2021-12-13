@@ -215,7 +215,7 @@ y_pred = predict(mdlLR, test_data_normed);
 % Fit model
 t = templateTree('MinLeafSize', 1);
 % update method to Bag so that it uses random forest
-mdlRF = fitrensemble(train_data, y_train, 'Method', 'Bag', 'NumLearningCycles', 499, 'Learners',t);
+mdlRF = fitrensemble(train_data, y_train, 'Method', 'Bag', 'NumLearningCycles', 100, 'Learners',t);
 
 % Predict y
 y_pred_rf = predict(mdlRF, test_data);

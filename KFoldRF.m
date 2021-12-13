@@ -2,7 +2,7 @@
 close all;
 rng(52);
 t = templateTree('MinLeafSize', 1);
-cvmdlRF = fitrensemble(train_data, y_train, 'Method', 'Bag', 'NumLearningCycles', 50, 'Learners',t, 'KFold', 5, 'Crossval','on');
+cvmdlRF = fitrensemble(train_data, y_train, 'Method', 'Bag', 'NumLearningCycles', 100, 'Learners',t, 'KFold', 5, 'Crossval','on');
 mse = kfoldLoss(cvmdlRF);
 
 % using https://uk.mathworks.com/help/stats/regressionlinear.predict.html

@@ -16,6 +16,20 @@ NumLearningCycles = optimizableVariable('NumLearningCycles', [1, 500], 'Type', '
 
 results = bayesopt(@(params)getRFError(params), NumLearningCycles, ...
      'AcquisitionFunctionName', 'expected-improvement-plus', 'Verbose', 0);
+
+%% Check number of trees custom
+numTrees = [1, 10, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 200, 250, 300, 350, 400, 450, 499, 500];
+results = zeros(1, numel(numTrees));
+
+for i = 1: numel(numTrees)
+    params.NumLearningCycles = numTrees(i);
+    results(i) = getRFError(params);
+end
+figure
+plot(numTrees, results);
+xlabel("Number of trees");
+ylabel("RMSE");
+title("Trees versus RMSE");
 %% Optimization function
 function rfError = getRFError(params)
     % trick from https://uk.mathworks.com/matlabcentral/answers/51907-how-do-i-get-the-value-of-a-variable-from-the-base-workspace-in-my-gui
