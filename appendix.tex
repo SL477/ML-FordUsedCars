@@ -96,16 +96,6 @@ Random Forest & MinLeafSize, 1, Method, Bag, NumLearningCycles, 50, Kfold, 5, Cr
 \hline
 \end{longtable}
 
-\begin{figure}%[!htb] % trick from https://tex.stackexchange.com/questions/32598/force-latex-image-to-appear-in-the-section-in-which-its-declared
-\centering
-% using https://tex.stackexchange.com/questions/198386/input-figures-from-sub-folders
-\includegraphics[height=6cm]{img/RFNumLearCyclesVMinMRSE}
-\caption{RF Number of Learners versus RMSE}
-\end{figure}
-
-From the above graph you can see that there is not much difference between using 50 trees and 500. We have kept it at 499 as the results against the test set were better (if we cared about computational efficiency, we might cap at around 50 trees).
-Using K-Fold validation on Random Forest made the results worse.
-
 \section{Implementation Details}
 For the implementation of the top models, we chose to use a single script named main to hold the majority of the code. This was to enable the easy running of all sections of code at once. This was also so that it was straightforward to run all of the code from top to bottom and reset all variables so that previous runs couldn't pollute the next run. By setting the data transformations to run each time the code ran we could ensure that our dataset remained pure and allowed for experimentation (such as how changing the hybrid's MPG from 202 to different numbers affected the models (it made the linear regression better and random forest worse)).
 
