@@ -17,16 +17,13 @@ Alternative for steps 1 & 2, on Linux and maybe Macs:
 2. Run the command:
 
 ```bash
-bash getData/getData.sh
-```
-
-or
-
-```bash
-make getdata1
+bash getData.sh
 ```
 
 Then run step 3
+
+### LaTex
+Install from [here](https://miktex.org/download). Then open in TeXworks and run typeset.
 
 ## Files
 | File Name | Description |
@@ -65,23 +62,33 @@ Then run step 3
 
 From https://uk.mathworks.com/help/matlab/ref/matlab.codetools.requiredfilesandproducts.html
 
-
-## TODO:
-- Translate code to Python
-
-## LaTex
-https://miktex.org/download
-
 ## Running the models (main)
-Keep the data in the folder data, then run main.m to run both models off against each other and generate the majority of the graphs.
+Download the data to the folder data, then run main.m to run both models off against each other and generate the majority of the graphs:
+
+![Data's histograms](/img/Histograms.jpg)
+*Histograms of the data*
+![Scatterplots](/img/ScatterPlots.jpg)
+*Scatterplots of the data against the price*
+![Linear Regression residuals](/img/LRResiduals.jpg)
+*Linear Regression residuals*
+![Random Forest residuals](/img/RFResiduals.jpg)
+*Random Forest residuals*
 
 
 ## Supplementary code
 ### Feature Importance
 This is used to see which features the models use (needs main to have run first).
 
+![LR Feature importance](/img/LRFeatureImportance.jpg)
+*Linear Regression's coefficients*
+![RF Feature importance](/img/RFFeatureImportance.jpg)
+*Relative feature importance for Random Forest*
+
 ### KFoldLR/KFoldRF
 These were used to experiment with using K-Fold validation on the models (needs main to have run first). These require the function in predictCombinedMdl to run.
 
 ### OptimiseRandomForest/OptimiseLinearRegression
 These were used to find the best hyperparameters for the relevant models (needs main to have run first).
+
+![Random Forest number of trees versus RMSE](/img/RFNumLearCyclesVMinMRSE.jpg)
+*Random Forest number of trees versus RMSE*
