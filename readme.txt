@@ -1,5 +1,5 @@
 # ML-FordUsedCars
-My original source code is in the repository: https://github.com/SL477/ML-FordUsedCars
+My original source code is in the repository: https://github.com/SL477/ML-FordUsedCars. The data I got from https://www.kaggle.com/adityadesai13/used-car-dataset-ford-and-mercedes?select=ford.csv.
 
 ## Required software
 - MATLAB 9.10
