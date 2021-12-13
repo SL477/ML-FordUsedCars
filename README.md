@@ -69,7 +69,7 @@ From https://uk.mathworks.com/help/matlab/ref/matlab.codetools.requiredfilesandp
 - Define features and predictors and remove I from appendix & poster
 - Horizontal lines in table
 - Hyperparameter, be consistent in spelling
-- refreences make sure they don't run off page and aren't right justified
+- KFold Predict for random forest and linear regression
 
 ## LaTex
 https://miktex.org/download
