@@ -53,6 +53,7 @@ Install from [here](https://miktex.org/download). Then open in TeXworks and run 
 | README.md | This readme file |
 | readme.txt | A reduced version of this file |
 | SummaryStats.xlsx | Used to format the summary statistics output from MatLab prior to use in the Poster |
+| testonly.m | Used to only run the analysis of the models |
 
 ## To work out required files use:
 
@@ -61,6 +62,15 @@ Install from [here](https://miktex.org/download). Then open in TeXworks and run 
 ```
 
 From https://uk.mathworks.com/help/matlab/ref/matlab.codetools.requiredfilesandproducts.html
+
+## Recreate savedvars file
+Save variables:
+- centre
+- mdlLR
+- mdlRF
+- scale
+- test_data
+- y_test
 
 ## Running the models (main)
 Download the data to the folder data, then run main.m to run both models off against each other and generate the majority of the graphs:

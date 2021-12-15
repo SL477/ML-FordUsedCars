@@ -4,9 +4,12 @@ My original source code is in the repository: https://github.com/SL477/ML-FordUs
 ## Required software
 - MATLAB 9.10
 - Statistics and Machine Learning Toolbox, version 12.1
-- GetSummaryStats.m (in folder)
 - analyseRegression.m (in folder)
-- main.m (in folder)
+- savedvars.mat (in folder)
+- testonly.m (in folder)
+
+## Run only the tests
+Execute the script testonly.m. It will load the variables from savedvars.mat, normalise the data (only for Linear Regression), then predicts the data for both and sends through the function analyseRegression to get the stats and graphs.
 
 ## Running the models (main)
 Keep the data in the folder data, then run main.m to run both models off against each other and generate the majority of the graphs.

@@ -91,4 +91,17 @@ function [mae, rmse] = analyseRegression(y_true, y_pred, X, ModelName)
     scatter(X.engineSize, y_pred, [],'x');
     hold off
     legend("True", "Prediction");
+    
+    %% Residuals versus X values
+    % To make sure that they aren't in any particular patterns. Idea from Probabilistic Machine Learning: An Introduction
+    % by Kevin Patrick Murphy, chapter 11
+    
+    loop = ["year", "mileage", "mpg", "engineSize"];
+    figure('Name', strcat(ModelName, " Residuals versus number features"));
+    for i = 1:4
+        subplot(2,2,i);
+        scatter(X{:,X.Properties.VariableNames == loop(i)}, residuals);
+        xlabel(loop(i));
+        ylabel("Residuals");
+    end
 end
